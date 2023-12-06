@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BibliotecaFastDevelopmentSwingAppModelo"/>
+	<classpathentry kind="lib" path="Librerias/JCalendar/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="Librerias/JCalendar/jgoodies-common-1.2.0.jar"/>
+	<classpathentry kind="lib" path="Librerias/JCalendar/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="lib" path="Librerias/JCalendar/junit-4.6.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

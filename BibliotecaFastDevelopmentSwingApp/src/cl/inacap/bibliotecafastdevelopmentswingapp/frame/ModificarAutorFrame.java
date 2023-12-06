@@ -1,0 +1,184 @@
+package cl.inacap.bibliotecafastdevelopmentswingapp.frame;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.event.ActionEvent;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
+
+import cl.inacap.bibliotecafastdevelopmentswingappmodelo.dao.AutorDAO;
+import cl.inacap.bibliotecafastdevelopmentswingappmodelo.dto.Autor;
+import cl.inacap.bibliotecafastdevelopmentswingapp.util.FechaGringaUtil;
+import cl.inacap.bibliotecafastdevelopmentswingapp.util.StartAudioUtil;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class ModificarAutorFrame extends JInternalFrame {
+	private JTextField textFieldModificar;
+	private JList listAutores;
+	private JButton btnModificar;
+	private JComboBox comboBoxAtributos;
+	private List<Autor> autores = new ArrayList<Autor>();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ModificarAutorFrame frame = new ModificarAutorFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ModificarAutorFrame() {
+		addInternalFrameListener(new InternalFrameAdapter() {
+			@Override
+			public void internalFrameOpened(InternalFrameEvent arg0) {
+				
+				autores = new AutorDAO().getAll();
+				if (autores.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "No hay autores registrados en el sistema");
+					dispose();
+				}
+				else {
+					DefaultListModel mo = new DefaultListModel();
+					
+					for (Autor au : autores) {
+						mo.addElement(au.toStringV2());
+					}
+					
+					listAutores.setModel(mo);
+					
+					comboBoxAtributos.addItem("Nombre");
+					comboBoxAtributos.addItem("Apellido paterno");
+					comboBoxAtributos.addItem("Apellido materno");
+					comboBoxAtributos.addItem("Fecha de nacimiento");		
+				}		
+				
+			}
+		});
+		setTitle("Modificar Autor");
+		setClosable(true);
+		setBounds(100, 100, 700, 445);
+		getContentPane().setLayout(null);
+		
+		textFieldModificar = new JTextField();
+		textFieldModificar.setBounds(10, 33, 127, 20);
+		getContentPane().add(textFieldModificar);
+		textFieldModificar.setColumns(10);
+		
+		comboBoxAtributos = new JComboBox();
+		comboBoxAtributos.setBounds(147, 33, 127, 20);
+		getContentPane().add(comboBoxAtributos);
+		
+		btnModificar = new JButton("Modificar");
+		btnModificar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				StartAudioUtil sau = new StartAudioUtil();
+				sau.reproducir("SonidoEntrandoBoton", "wav");
+			}
+		});
+		btnModificar.setIcon(new ImageIcon(ModificarAutorFrame.class.getResource("/cl/inacap/bibliotecafastdevelopmentswingapp/image/set.png")));
+		btnModificar.addActionListener(e -> modificarAutor(e));
+		btnModificar.setBounds(284, 32, 115, 23);
+		getContentPane().add(btnModificar);
+		
+		listAutores = new JList();
+		listAutores.setBounds(10, 67, 664, 337);
+		getContentPane().add(listAutores);
+
+	}
+
+	private void modificarAutor(ActionEvent e) {
+		StartAudioUtil sau = new StartAudioUtil();
+		sau.reproducir("SonidoBoton", "wav");
+
+		try {
+			boolean validado = false;
+			String mensaje = "";
+			Autor autorSeleccionado = autores.get(listAutores.getSelectedIndex());
+			String atributoSeleccionado = (String)comboBoxAtributos.getSelectedItem();
+			String valorModificado = textFieldModificar.getText();
+
+		
+			switch (atributoSeleccionado) {
+			case "Nombre":
+				autorSeleccionado.setNombre(valorModificado);
+				if (autorSeleccionado.getNombre().trim().isEmpty() == false) {
+					validado = true;
+				}
+				else {
+					mensaje = "- Nombre no valido";
+				}
+				break;
+			case "Apellido paterno":
+				autorSeleccionado.setApellidoPaterno(valorModificado);
+				if (autorSeleccionado.getApellidoPaterno().trim().isEmpty() == false) {
+					validado = true;
+				}
+				else {
+					mensaje = "- Apellido paterno no valido";
+				}
+				break;
+			case "Apellido materno":
+				autorSeleccionado.setApellidoMaterno(valorModificado);
+				if (autorSeleccionado.getApellidoMaterno().trim().isEmpty() == false) {
+					validado = true;
+				}
+				else {
+					mensaje = "- Apellido materno no valido";
+				}
+				break;
+			case "Fecha de nacimiento":
+				autorSeleccionado.setFechaDeNacimiento(valorModificado);
+				if (new FechaGringaUtil().validarFechaGringa(autorSeleccionado.getFechaDeNacimiento())) {
+					validado = true;
+				}
+				else {
+					mensaje = "- Fecha de nacimiento no valida";
+				}
+				break;
+			}
+			
+			if (validado == true) {
+				AutorDAO daoAutor = new AutorDAO();
+				daoAutor.update(autorSeleccionado);
+				JOptionPane.showMessageDialog(null, "Autor modificado correctamente");
+				this.dispose();
+			}
+			else {
+				JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+				
+			}
+			
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, "- No a seleccionado ning�n autor","Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+		}
+	}
+	
+}
+	
+
+
