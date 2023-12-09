@@ -94,7 +94,7 @@ public class RegistrarVentaFrame extends JInternalFrame {
 					}
 				}
 				if (existeEstadoVendido == false) {
-					JOptionPane.showMessageDialog(null, "El estado con descripci�n 'Vendido' no existe, por lo cual no se puede efectuar una venta");
+					JOptionPane.showMessageDialog(null, "El estado con descripción 'Vendido' no existe, por lo cual no se puede efectuar una venta");
 					dispose();
 				}
 				for (EstadoLibro el : estadoLibros) {
@@ -157,7 +157,7 @@ public class RegistrarVentaFrame extends JInternalFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				if (listLibrosDisponibles.getSelectedValue() != null) {
 					JList listLibrosDisponibles = (JList)arg0.getSource(); //Es necesario para detectar el doble click.
-					if (arg0.getClickCount() == 2) { //Si se hace doble click en el modelo se ejecuta el c�digo de adentro.
+					if (arg0.getClickCount() == 2) { //Si se hace doble click en el modelo se ejecuta el código de adentro.
 						Libro libroSeleccionado = (Libro)listLibrosDisponibles.getSelectedValue();
 						moLibrosCarrito.addElement(libroSeleccionado);
 						moLibros.removeElement(libroSeleccionado);
@@ -191,7 +191,7 @@ public class RegistrarVentaFrame extends JInternalFrame {
 			public void mouseClicked(MouseEvent e) {
 				if (listCarrito.getSelectedValue() != null) {
 					JList listCarrito = (JList)e.getSource(); //Es necesario para detectar el doble click.
-					if (e.getClickCount() == 2) { //Si se hace doble click en el modelo se ejecuta el c�digo de adentro.
+					if (e.getClickCount() == 2) { //Si se hace doble click en el modelo se ejecuta el código de adentro.
 						Libro libroSeleccionado=(Libro)listCarrito.getSelectedValue();
 						moLibros.addElement(libroSeleccionado);
 						moLibrosCarrito.removeElement(libroSeleccionado);
@@ -238,7 +238,7 @@ public class RegistrarVentaFrame extends JInternalFrame {
 		List<String> errores = new ArrayList<String>();
 		
 		if (precio == 0) {
-			errores.add("El carrito esta vac�o");
+			errores.add("El carrito esta vacío");
 		}
 		Trabajador trabajadorSeleccionado = (Trabajador)this.comboBoxTrabajador.getSelectedItem();
 		Cliente ClienteSeleccionado = (Cliente)this.comboBoxCliente.getSelectedItem();
@@ -273,7 +273,7 @@ public class RegistrarVentaFrame extends JInternalFrame {
 			for (int i = 0 ; i < errores.size() ; i++) {
 				mensaje+="\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}	
 	}
 	

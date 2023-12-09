@@ -163,7 +163,7 @@ public class RegistrarClienteFrame extends JInternalFrame {
 			listTelefonos.setModel(mo);
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "El n�mero de telefono debe tener el formato: 123456789");
+			JOptionPane.showMessageDialog(null, "El número de telefono debe tener el formato: 123456789");
 		}
 		
 	}
@@ -187,7 +187,7 @@ public class RegistrarClienteFrame extends JInternalFrame {
 		String rut = this.textFieldRut.getText().trim();
 		RutUtil rutUtils = new RutUtil();
 		if (rutUtils.validarRutChileno(rut) == false) {
-			errores.add("El rut ingresado no es v�lido");
+			errores.add("El rut ingresado no es válido");
 		}
 		
 		String nombre = this.textFieldNombre.getText().trim();
@@ -214,7 +214,7 @@ public class RegistrarClienteFrame extends JInternalFrame {
 			for (int i = 0 ; i<errores.size() ; i++) {
 				mensaje+= "\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 		
 		List<String> telefonos = new ArrayList<>();

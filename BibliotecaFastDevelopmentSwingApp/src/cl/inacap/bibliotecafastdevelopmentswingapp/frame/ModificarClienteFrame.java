@@ -167,11 +167,11 @@ public class ModificarClienteFrame extends JInternalFrame {
 				dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 			}
 
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "- No a seleccionado ning�n cliente", "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "- No a seleccionado ningún cliente", "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 	}
 	

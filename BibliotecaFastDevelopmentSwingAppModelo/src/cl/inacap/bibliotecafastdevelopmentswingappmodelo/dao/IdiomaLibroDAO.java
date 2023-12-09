@@ -18,15 +18,15 @@ public class IdiomaLibroDAO {
 
 		for (Idioma id : idiomas) {
 			try {
-				System.out.println("Conexi�n a la DB Idioma: " + bdUtil.conectar());
+				System.out.println("Conexión a la DB Idioma: " + bdUtil.conectar());
 				String sql = "INSERT INTO idioma_libro" + "(libro_numero_de_serie, idioma_codigo)" + " VALUES('" + libroFK + "','" + id.getCodigo() + "')"; 
 				Statement st = bdUtil.getConexion().createStatement();
 				st.executeUpdate(sql);
 				resultado = true;
-				System.out.println("Ejecuci�n del SQL Idioma: " + resultado);
+				System.out.println("Ejecución del SQL Idioma: " + resultado);
 			} catch (Exception ex) {
 				resultado = false;
-				System.out.println("Ejecuci�n del SQL Idioma: " + resultado);
+				System.out.println("Ejecución del SQL Idioma: " + resultado);
 				
 			} finally { 
 				bdUtil.desconectar(); 
@@ -42,14 +42,14 @@ public class IdiomaLibroDAO {
 		boolean resultado;
 		try {
 			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT id, libro_numero_de_serie, idioma_codigo" + " FROM idioma_libro";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				IdiomaLibro il = new IdiomaLibro();
 				il.setId(rs.getInt(1));
@@ -61,7 +61,7 @@ public class IdiomaLibroDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			idiomaLibros = null;
 			
 		} finally { 
@@ -74,16 +74,16 @@ public class IdiomaLibroDAO {
 	public void delete(IdiomaLibro il) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM idioma_libro" + " WHERE id = ?";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 			st.setInt(1, il.getId());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally {
 			bdUtil.desconectar();

@@ -55,7 +55,7 @@ public class MostrarCategoriaFrame extends JInternalFrame {
 			}
 
 		});
-		setTitle("Mostrar Categor�as");
+		setTitle("Mostrar Categorías");
 		setClosable(true);
 		setBounds(100, 100, 700, 445);
 		getContentPane().setLayout(null);
@@ -73,7 +73,7 @@ public class MostrarCategoriaFrame extends JInternalFrame {
 	private void cargarTabla() {
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		mo.addColumn("C�digo");
+		mo.addColumn("Código");
 		mo.addColumn("Nombre");
 		
 		for(Categoria ca:categorias) {

@@ -100,7 +100,7 @@ public class RegistrarLibroFrame extends JInternalFrame {
 				}
 				
 				if (categorias.isEmpty() == true) {
-					JOptionPane.showMessageDialog(null, "Debe haber una categor�a registrada en el sistema para poder registrar un libro");
+					JOptionPane.showMessageDialog(null, "Debe haber una categoría registrada en el sistema para poder registrar un libro");
 					dispose();
 				}		
 				
@@ -376,7 +376,7 @@ public class RegistrarLibroFrame extends JInternalFrame {
 		}
 
 		if (lmoIdiomas.getSize() <= 0) {
-			errores.add("No hay ning�n idioma seleccionado");
+			errores.add("No hay ningún idioma seleccionado");
 		}
 		
 		ListModel lmoAutores = listAutor.getModel();
@@ -387,7 +387,7 @@ public class RegistrarLibroFrame extends JInternalFrame {
 		}
 
 		if (lmoAutores.getSize() <= 0) {
-			errores.add("No hay ning�n autor seleccionado");
+			errores.add("No hay ningún autor seleccionado");
 		}
 		
 		ListModel lmoCategorias = listCategoria.getModel();
@@ -398,7 +398,7 @@ public class RegistrarLibroFrame extends JInternalFrame {
 		}
 
 		if (lmoCategorias.getSize() <= 0) {
-			errores.add("No hay ninguna categor�a seleccionada");
+			errores.add("No hay ninguna categoría seleccionada");
 		}
 		
 		int numeroDeSerie = 0;
@@ -415,14 +415,14 @@ public class RegistrarLibroFrame extends JInternalFrame {
 		
 		String titulo = this.textFieldTitulo.getText().trim();
 		if (titulo.isEmpty()) {
-			errores.add("T�tulo no valido");
+			errores.add("Título no valido");
 		}
 		
 		int numeroDePaginas = 0;
 		try {
 			numeroDePaginas = Integer.parseInt(this.spinnerNumeroDePaginas.getValue().toString().trim());
 		} catch(Exception ex) {
-			errores.add("N�mero de p�ginas no valido");
+			errores.add("Número de páginas no valido");
 		}
 		
 		double precioDeReferencia = 0;
@@ -448,7 +448,7 @@ public class RegistrarLibroFrame extends JInternalFrame {
 			for (int i = 0 ; i < errores.size() ; i++) {
 				mensaje+="\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 		
 		if (errores.isEmpty()) {
@@ -477,7 +477,7 @@ public class RegistrarLibroFrame extends JInternalFrame {
 				dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "El n�mero de serie ya fue ingresado anteriormente, ingrese uno diferente", "Error DB", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "El número de serie ya fue ingresado anteriormente, ingrese uno diferente", "Error DB", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

@@ -85,7 +85,7 @@ public class BuscarAutorFrame extends JInternalFrame {
 		
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		String nombreColumnas[] = {"C�digo", "Nombre", "Apellido paterno", "Apellido materno", "Fecha de nacimiento"};
+		String nombreColumnas[] = {"Código", "Nombre", "Apellido paterno", "Apellido materno", "Fecha de nacimiento"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);
@@ -103,7 +103,7 @@ public class BuscarAutorFrame extends JInternalFrame {
 		String clavePrimariaAutor = this.textFieldAutor.getText();
 		List<Autor> autor = new AutorDAO().filtrarAutor(clavePrimariaAutor);
 		
-		String nombreColumnas[]= {"C�digo", "Nombre", "Apellido paterno", "Apellido materno", "Fecha de nacimiento"};
+		String nombreColumnas[]= {"Código", "Nombre", "Apellido paterno", "Apellido materno", "Fecha de nacimiento"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);

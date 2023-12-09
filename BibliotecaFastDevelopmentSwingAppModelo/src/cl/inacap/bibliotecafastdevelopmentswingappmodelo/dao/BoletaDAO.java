@@ -14,7 +14,7 @@ public class BoletaDAO {
 	public boolean save(Boleta bo) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO boleta" + "(folio, precio_neto, precio_con_iva, costo_iva, fecha_de_venta, hora_de_venta, metodo_de_pago_boleta_codigo, cliente_rut, trabajador_rut, venta_id)" + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql);
 			st.setString(1, bo.getFolio());
@@ -29,10 +29,10 @@ public class BoletaDAO {
 			st.setInt(10, bo.getVentaFK());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
 		bdUtil.desconectar(); 
@@ -45,14 +45,14 @@ public class BoletaDAO {
 		
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT folio, precio_neto, precio_con_iva, costo_iva, fecha_de_venta, hora_de_venta, metodo_de_pago_boleta_codigo, cliente_rut, trabajador_rut, venta_id" + " FROM boleta";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				Boleta bo = new Boleta();
 				bo.setFolio(rs.getString(1));
@@ -71,7 +71,7 @@ public class BoletaDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			boletas = null;
 			
 		} finally { 
@@ -84,16 +84,16 @@ public class BoletaDAO {
 	public boolean delete(Boleta bo) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM boleta" + " WHERE folio = ?";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 			st.setString(1, bo.getFolio());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally {
 			bdUtil.desconectar();
@@ -107,15 +107,15 @@ public class BoletaDAO {
 		boolean resultado;
 		try {
 			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT folio, precio_neto, precio_con_iva, costo_iva, fecha_de_venta, hora_de_venta, trabajador_rut, metodo_de_pago_boleta_codigo, cliente_rut" + " FROM boleta";
-			sql+=" WHERE folio=" + "'" + filtro + "'";
+			sql+=" WHERE folio = " + "'" + filtro + "'";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while(rs.next()) { 
 				Boleta bo = new Boleta();
 				bo.setFolio(rs.getString(1));
@@ -133,7 +133,7 @@ public class BoletaDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			boletas = null;
 			
 		} finally { 

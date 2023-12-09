@@ -84,7 +84,7 @@ public class BuscarEditorialFrame extends JInternalFrame {
 		
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		String nombreColumnas[] = {"C�digo","Nombre"};
+		String nombreColumnas[] = {"Código","Nombre"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);
@@ -102,7 +102,7 @@ public class BuscarEditorialFrame extends JInternalFrame {
 		String clavePrimariaEditorial = this.textFieldEditorial.getText();
 		List<Editorial> editorial = new EditorialDAO().filtrarEditorial(clavePrimariaEditorial);
 		
-		String nombreColumnas[] = {"C�digo","Nombre"};
+		String nombreColumnas[] = {"Código","Nombre"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);

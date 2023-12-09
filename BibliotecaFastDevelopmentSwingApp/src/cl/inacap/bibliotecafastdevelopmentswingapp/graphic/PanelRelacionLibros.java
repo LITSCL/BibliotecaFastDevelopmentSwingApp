@@ -1,7 +1,7 @@
 package cl.inacap.bibliotecafastdevelopmentswingapp.graphic;
 
 import java.awt.Color;
-import java.awt.Graphics; //Esta clase permite trabajar con Gr·ficos 2D.
+import java.awt.Graphics; //Esta clase permite trabajar con Gr√°ficos 2D.
 
 import javax.swing.JPanel;
 
@@ -10,7 +10,7 @@ import cl.inacap.bibliotecafastdevelopmentswingappmodelo.dao.VentaLibroDAO;
 
 
 public class PanelRelacionLibros extends JPanel {
-	private Color colorBarraLibrosComprados = Color.green; //Este atributo indica el color que se utilizar· para su respectiva barra.
+	private Color colorBarraLibrosComprados = Color.green; //Este atributo indica el color que se utilizar√° para su respectiva barra.
 	private Color colorBarraLibrosVendidos = Color.yellow;
 	private CompraLibroDAO daoCompraLibro = new CompraLibroDAO();
 	private VentaLibroDAO daoVentaLibro = new VentaLibroDAO();

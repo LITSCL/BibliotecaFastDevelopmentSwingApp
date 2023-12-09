@@ -167,7 +167,7 @@ public class RegistrarDistribuidorFrame extends JInternalFrame {
 		String rut = this.textFieldRut.getText().trim();
 		RutUtil rutUtils = new RutUtil();
 		if (rutUtils.validarRutChileno(rut) == false) {
-			errores.add("El rut ingresado no es v�lido");
+			errores.add("El rut ingresado no es válido");
 		}
 		
 		String nombre = this.textFieldNombre.getText().trim();
@@ -198,7 +198,7 @@ public class RegistrarDistribuidorFrame extends JInternalFrame {
 			numeroValidado = false;
 		}
 		if (numero.isEmpty() || numeroValidado == false) {
-			errores.add("N�mero de calle no valido");
+			errores.add("Número de calle no valido");
 		}
 		
 		
@@ -207,7 +207,7 @@ public class RegistrarDistribuidorFrame extends JInternalFrame {
 			
 		}
 		else {
-			errores.add("N�mero de telefono no valido");
+			errores.add("Número de telefono no valido");
 		}
 			
 		String yearServicio = this.textFieldYearServicio.getText().trim();
@@ -220,7 +220,7 @@ public class RegistrarDistribuidorFrame extends JInternalFrame {
 			for (int i = 0 ; i < errores.size() ; i++) {
 				mensaje+="\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 		
 		if (errores.isEmpty() == true) {

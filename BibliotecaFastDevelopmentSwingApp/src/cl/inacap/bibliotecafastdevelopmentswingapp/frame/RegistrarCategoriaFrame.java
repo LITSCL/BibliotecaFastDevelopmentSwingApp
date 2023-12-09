@@ -44,7 +44,7 @@ public class RegistrarCategoriaFrame extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public RegistrarCategoriaFrame() {
-		setTitle("Registrar Categor�a");
+		setTitle("Registrar Categoría");
 		setClosable(true);
 		setBounds(100, 100, 700, 445);
 		getContentPane().setLayout(null);
@@ -89,7 +89,7 @@ public class RegistrarCategoriaFrame extends JInternalFrame {
 		
 		String codigo = this.textFieldCodigo.getText().trim();
 		if (codigo.isEmpty()) {
-			errores.add("C�digo no valido");
+			errores.add("Código no valido");
 		}
 		
 		String nombre = this.textFieldNombre.getText().trim();
@@ -102,7 +102,7 @@ public class RegistrarCategoriaFrame extends JInternalFrame {
 			for (int i = 0 ; i<errores.size() ; i++) {
 				mensaje+= "\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 		
 		if (errores.isEmpty()) {
@@ -112,11 +112,11 @@ public class RegistrarCategoriaFrame extends JInternalFrame {
 			
 			CategoriaDAO daoCategoria = new CategoriaDAO();
 			if (daoCategoria.save(ca)) {
-				JOptionPane.showMessageDialog(null, "Categor�a registrada correctamente");
+				JOptionPane.showMessageDialog(null, "Categoría registrada correctamente");
 				dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "El c�digo (Y/O) el nombre ya fueron ingresados anteriormente, ingrese datos diferentes", "Error DB", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "El código (Y/O) el nombre ya fueron ingresados anteriormente, ingrese datos diferentes", "Error DB", JOptionPane.ERROR_MESSAGE);
 			}	
 		}
 	}

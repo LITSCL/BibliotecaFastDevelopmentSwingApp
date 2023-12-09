@@ -18,22 +18,22 @@ public class FacturaDAO {
 	private BDUtil bdUtil = new BDUtil();
 	
 	/**
-	 * Este m�todo permite agregar un registro a la tabla compra de la base de datos.
+	 * Este método permite agregar un registro a la tabla compra de la base de datos.
 	 * @param fa Es el objeto a agregar en la base de datos.
 	 * @return Retorna true si se agrego exitosamente el registro, en caso contrario retorna false.
 	 */
 	public boolean save(Factura fa) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO factura" + "(folio, precio_neto, precio_con_iva, costo_iva, fecha_de_compra, hora_de_compra, metodo_de_pago_factura_codigo, distribuidor_rut, compra_id)" + " VALUES('" + fa.getFolio() + "','" + fa.getPrecioNeto() + "','" + fa.getPrecioConIVA() + "','" + fa.getCostoIVA() + "','" + fa.getFechaDeCompra() + "','" + fa.getHoraDeCompra() + "','" + fa.getMetodoDePagoFK() + "','" + fa.getDistribuidorFK() + "','" + fa.getCompraFK() + "')"; 
 			Statement st = bdUtil.getConexion().createStatement();
 			st.executeUpdate(sql);
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
 			bdUtil.desconectar(); 
@@ -47,14 +47,14 @@ public class FacturaDAO {
 		boolean resultado;
 		try {
 			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT folio, precio_neto, precio_con_iva, costo_iva, fecha_de_compra, hora_de_compra, metodo_de_pago_factura_codigo, distribuidor_rut, compra_id" + " FROM factura";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				Factura fa = new Factura();
 				fa.setFolio(rs.getString(1));
@@ -72,7 +72,7 @@ public class FacturaDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			facturas = null;
 			
 		} finally { 
@@ -84,16 +84,16 @@ public class FacturaDAO {
 	public boolean delete(Factura fa) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM factura" + " WHERE folio = ?";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 			st.setString(1, fa.getFolio());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally {
 			bdUtil.desconectar();
@@ -106,15 +106,15 @@ public class FacturaDAO {
 		
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT folio, precio_neto, precio_con_iva, costo_iva, fecha_de_compra, hora_de_compra, metodo_de_pago_factura_codigo, distribuidor_rut, compra_id" + " FROM factura";
-			sql+=" WHERE folio=" + "'" + filtro + "'";
+			sql+=" WHERE folio = " + "'" + filtro + "'";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				Factura fa = new Factura();
 				fa.setFolio(rs.getString(1));
@@ -132,7 +132,7 @@ public class FacturaDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			facturas = null;
 			
 		} finally { 

@@ -16,15 +16,15 @@ public class ClienteDAO {
 	public boolean save(Cliente cl) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO cliente" + "(rut, nombre, apellido_paterno, apellido_materno, fecha_de_nacimiento)" + " VALUES('" + cl.getRut()+"','" + cl.getNombre() + "','" + cl.getApellidoPaterno() + "','" + cl.getApellidoMaterno() + "','" + cl.getFechaDeNacimiento() + "')"; 
 			Statement st = bdUtil.getConexion().createStatement();
 			st.executeUpdate(sql);
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
 		bdUtil.desconectar(); 
@@ -32,20 +32,20 @@ public class ClienteDAO {
 		return resultado;
 	}
 	
-	public List<Cliente> getAll(){
+	public List<Cliente> getAll() {
 		List<Cliente> clientes = new ArrayList<Cliente>();
 		
 		boolean resultado;
 		try {
 			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT rut, nombre, apellido_paterno, apellido_materno, fecha_de_nacimiento" + " FROM cliente";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				Cliente cl = new Cliente();
 				cl.setRut(rs.getString(1));
@@ -59,7 +59,7 @@ public class ClienteDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			clientes = null;
 			
 		} finally { 
@@ -72,16 +72,16 @@ public class ClienteDAO {
 	public void delete(Cliente cl) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM cliente" + " WHERE rut = ?";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 			st.setString(1, cl.getRut());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally {
 			bdUtil.desconectar();
@@ -93,7 +93,7 @@ public class ClienteDAO {
 		boolean resultado;
 		try {
 			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			String sql = "UPDATE cliente SET nombre = ?" + ", apellido_paterno = ?" + ", apellido_materno = ?" + ", fecha_de_nacimiento = ?" + " WHERE rut = ?"; 
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
@@ -105,11 +105,11 @@ public class ClienteDAO {
 			
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
 			bdUtil.desconectar(); 
 
@@ -123,15 +123,15 @@ public class ClienteDAO {
 		boolean resultado;
 		try {
 				
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 				
 			String sql = "SELECT rut, nombre, apellido_paterno, apellido_materno, fecha_de_nacimiento" + " FROM cliente";
-			sql+=" WHERE rut=" + "'" + filtro + "'";
+			sql+=" WHERE rut = " + "'" + filtro + "'";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql);
 				
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				Cliente cl = new Cliente();
 				cl.setRut(rs.getString(1));
@@ -144,7 +144,7 @@ public class ClienteDAO {
 				rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			clientes = null;
 				
 		}finally { 

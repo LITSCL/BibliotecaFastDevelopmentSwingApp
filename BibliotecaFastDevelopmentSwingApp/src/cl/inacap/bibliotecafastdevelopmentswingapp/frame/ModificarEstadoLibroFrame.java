@@ -71,7 +71,7 @@ public class ModificarEstadoLibroFrame extends JInternalFrame {
 					
 					listEstadoLibros.setModel(mo);
 					
-					comboBoxAtributos.addItem("Descripci�n");
+					comboBoxAtributos.addItem("Descripción");
 					
 				}
 			}
@@ -119,7 +119,7 @@ public class ModificarEstadoLibroFrame extends JInternalFrame {
 			String atributoSeleccionado = (String)comboBoxAtributos.getSelectedItem();
 			String valorModificado = textFieldModificar.getText().trim();
 			
-			if (atributoSeleccionado.equalsIgnoreCase("Descripci�n")) {
+			if (atributoSeleccionado.equalsIgnoreCase("Descripción")) {
 				estadoLibroSeleccionado.setDescripcion(valorModificado);
 
 			}
@@ -136,10 +136,10 @@ public class ModificarEstadoLibroFrame extends JInternalFrame {
 				this.dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "- Descripci�n no valida", "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "- Descripción no valida", "Error de validación", JOptionPane.WARNING_MESSAGE);
 			}
 		} catch (Exception e2) {
-			JOptionPane.showMessageDialog(null, "- No a seleccionado ning�n estado", "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "- No a seleccionado ningún estado", "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 	}
 	

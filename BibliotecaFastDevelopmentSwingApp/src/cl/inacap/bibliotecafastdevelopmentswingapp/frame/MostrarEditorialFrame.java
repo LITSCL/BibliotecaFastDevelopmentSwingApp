@@ -75,7 +75,7 @@ public class MostrarEditorialFrame extends JInternalFrame {
 	public void cargarTabla() {
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		mo.addColumn("C�digo");
+		mo.addColumn("Código");
 		mo.addColumn("Nombre");
 		
 		for (Editorial ed : editoriales) {

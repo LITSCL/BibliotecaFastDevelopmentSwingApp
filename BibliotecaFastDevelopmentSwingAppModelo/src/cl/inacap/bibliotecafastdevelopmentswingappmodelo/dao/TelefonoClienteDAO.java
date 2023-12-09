@@ -16,18 +16,18 @@ public class TelefonoClienteDAO {
 		if (telefonos.size() > 0) {
 			try {
 				for (int i = 0; i < telefonos.size(); i++) {
-				System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+				System.out.println("Conexión a la DB: " + bdUtil.conectar());
 				String sql = "INSERT INTO telefono_cliente" + "(telefono, cliente_rut)" + " VALUES(?, ?)"; 
 				PreparedStatement st = bdUtil.getConexion().prepareStatement(sql);
 				st.setString(1, telefonos.get(i));
 				st.setString(2, rutCliente);
 				st.executeUpdate();
 				resultado = true;
-				System.out.println("Ejecuci�n del SQL: " + resultado);
+				System.out.println("Ejecución del SQL: " + resultado);
 				}
 			} catch (Exception ex) {
 				resultado = false;
-				System.out.println("Ejecuci�n del SQL: " + resultado);
+				System.out.println("Ejecución del SQL: " + resultado);
 					
 			} finally { 
 				bdUtil.desconectar(); 
@@ -43,7 +43,7 @@ public class TelefonoClienteDAO {
 		boolean resultado;
 		try {
 				
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 				
 			String sql = "SELECT id, telefono, cliente_rut" + " FROM telefono_cliente";
 			sql+=" WHERE cliente_rut = " + "'" + filtro + "'";
@@ -51,7 +51,7 @@ public class TelefonoClienteDAO {
 				
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				TelefonoCliente tc = new TelefonoCliente();
 				tc.setId(rs.getInt(1));
@@ -62,7 +62,7 @@ public class TelefonoClienteDAO {
 				rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			telefonosCliente = null;
 				
 		}finally { 

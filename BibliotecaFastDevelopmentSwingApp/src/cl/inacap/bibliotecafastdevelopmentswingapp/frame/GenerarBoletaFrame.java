@@ -81,7 +81,7 @@ public class GenerarBoletaFrame extends JInternalFrame {
 				boletas = new BoletaDAO().getAll();
 				
 				if (trabajadores.isEmpty() || metodoPagoBoletas.isEmpty() || clientes.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Debe haber un trabajador, un m�todo de pago y un cliente como m�nimo registrados en el sistema para poder generar una boleta");
+					JOptionPane.showMessageDialog(null, "Debe haber un trabajador, un método de pago y un cliente como mínimo registrados en el sistema para poder generar una boleta");
 					dispose();
 				}
 				else {
@@ -300,7 +300,7 @@ public class GenerarBoletaFrame extends JInternalFrame {
 			for (int i=0 ; i<errores.size() ; i++) {
 				mensaje+="\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 		
 		if (errores.isEmpty() == true) {

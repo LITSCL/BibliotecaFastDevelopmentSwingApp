@@ -74,12 +74,12 @@ public class ModificarDistribuidorFrame extends JInternalFrame {
 					listDistribuidores.setModel(mo);
 					
 					comboBoxAtributos.addItem("Nombre");
-					comboBoxAtributos.addItem("Pa�s");
+					comboBoxAtributos.addItem("País");
 					comboBoxAtributos.addItem("Comuna");
 					comboBoxAtributos.addItem("Calle");
-					comboBoxAtributos.addItem("N�mero");
+					comboBoxAtributos.addItem("Número");
 					comboBoxAtributos.addItem("Telefono");
-					comboBoxAtributos.addItem("A�os de servicio");
+					comboBoxAtributos.addItem("Años de servicio");
 					
 				}
 			}
@@ -138,13 +138,13 @@ public class ModificarDistribuidorFrame extends JInternalFrame {
 					mensaje = "- Nombre no valido";
 				}
 				break;
-			case "Pa�s":
+			case "País":
 				distribuidorSeleccionado.setPais(valorModificado);
 				if (distribuidorSeleccionado.getPais().trim().isEmpty() == false) {
 					validado = true;
 				}
 				else {
-					mensaje = "- Pa�s no valido";
+					mensaje = "- País no valido";
 				}
 				break;
 			case "Comuna":
@@ -165,12 +165,12 @@ public class ModificarDistribuidorFrame extends JInternalFrame {
 					mensaje = "- Calle no valida";
 				}
 				break;
-			case "N�mero":
+			case "Número":
 				distribuidorSeleccionado.setNumero(valorModificado);
 				try {
 					int numeroInt = Integer.parseInt(distribuidorSeleccionado.getNumero());
 				} catch (Exception ex) {
-					mensaje = "- N�mero no valido";
+					mensaje = "- Número no valido";
 				}
 				break;
 			case "Telefono":
@@ -178,10 +178,10 @@ public class ModificarDistribuidorFrame extends JInternalFrame {
 				if (new TelefonoUtil().validarTelefono(distribuidorSeleccionado.getTelefono())==true) {
 					validado = true;
 				}else {
-					mensaje = "- Tel�fono no valido";
+					mensaje = "- Teléfono no valido";
 				}
 				break;
-			case "A�os de servicio":
+			case "Años de servicio":
 				distribuidorSeleccionado.setYearServicio(valorModificado);
 				if (new FechaGringaUtil().validarFechaGringa(distribuidorSeleccionado.getYearServicio()) == true) {
 					validado = true;
@@ -197,11 +197,11 @@ public class ModificarDistribuidorFrame extends JInternalFrame {
 				this.dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 			}
 
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "- No a seleccionado ning�n distribuidor", "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "- No a seleccionado ningún distribuidor", "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 	}
 

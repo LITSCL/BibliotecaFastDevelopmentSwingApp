@@ -116,11 +116,11 @@ public class MostrarTrabajadorFrame extends JInternalFrame {
 					return;
 		    		if (e.isPopupTrigger() && e.getComponent() instanceof JTable ) {
 		    			JPopupMenu pm = new JPopupMenu(); //Aca se crea el PopUp (La ventana).
-		    			JMenuItem mi = new JMenuItem("Agregar telefono", new ImageIcon(MostrarTrabajadorFrame.class.getResource("/cl/inacap/bibliotecafastdevelopmentSwingApp/imagenes/add.png"))); //Aca se crea un JMenuItem (Para luego a�adirlo al PopUp).
+		    			JMenuItem mi = new JMenuItem("Agregar telefono", new ImageIcon(MostrarTrabajadorFrame.class.getResource("/cl/inacap/bibliotecafastdevelopmentSwingApp/imagenes/add.png"))); //Aca se crea un JMenuItem (Para luego añadirlo al PopUp).
 		        	   
-		    			mi.addActionListener(a -> agregarTelefono()); //Aca se le a�ade el listener al JMenuItem.
+		    			mi.addActionListener(a -> agregarTelefono()); //Aca se le añade el listener al JMenuItem.
 		        	   
-		    			pm.add(mi); //Aca se le a�ade el JMenuItem al PopUp.
+		    			pm.add(mi); //Aca se le añade el JMenuItem al PopUp.
 		        	   
 		    			pm.show(e.getComponent(), e.getX(), e.getY());
 		        	

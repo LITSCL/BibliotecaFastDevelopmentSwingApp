@@ -15,15 +15,15 @@ public class MetodoPagoBoletaDAO {
 	public boolean save(MetodoPagoBoleta mpb) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO metodo_de_pago_boleta" + "(codigo, descripcion)" + " VALUES('" + mpb.getCodigo() + "','" + mpb.getDescripcion() + "')"; 
 			Statement st = bdUtil.getConexion().createStatement();
 			st.executeUpdate(sql);
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
 			bdUtil.desconectar(); 
@@ -36,14 +36,14 @@ public class MetodoPagoBoletaDAO {
 		
 		boolean resultado;
 		try {	
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT codigo, descripcion" + " FROM metodo_de_pago_boleta";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				MetodoPagoBoleta mpb = new MetodoPagoBoleta();
 				mpb.setCodigo(rs.getString(1));
@@ -54,7 +54,7 @@ public class MetodoPagoBoletaDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			metodoPagoBoletas = null;			
 		} finally { 
 			bdUtil.desconectar(); 
@@ -65,16 +65,16 @@ public class MetodoPagoBoletaDAO {
 	public boolean delete(MetodoPagoBoleta mpb) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM metodo_de_pago_boleta" + " WHERE codigo = ?";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 			st.setString(1, mpb.getCodigo());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally {
 			bdUtil.desconectar();
@@ -86,7 +86,7 @@ public class MetodoPagoBoletaDAO {
 		boolean resultado;
 		try {
 			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			String sql = "UPDATE metodo_de_pago_boleta SET descripcion = ?" + " WHERE codigo = ?"; 
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
@@ -95,11 +95,11 @@ public class MetodoPagoBoletaDAO {
 
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
 			bdUtil.desconectar(); 
 		}

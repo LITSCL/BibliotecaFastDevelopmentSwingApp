@@ -54,7 +54,7 @@ public class BorrarMetodoPagoBoletaFrame extends JInternalFrame {
 				metodoPagoBoletas = new MetodoPagoBoletaDAO().getAll();
 				
 				if (metodoPagoBoletas.isEmpty() == true) {
-					JOptionPane.showMessageDialog(null, "No hay m�todos de pago registrados en el sistema");
+					JOptionPane.showMessageDialog(null, "No hay métodos de pago registrados en el sistema");
 					dispose();
 				}
 				else {
@@ -99,11 +99,11 @@ public class BorrarMetodoPagoBoletaFrame extends JInternalFrame {
 		MetodoPagoBoleta metodoPagoBoletaSeleccionado = metodoPagoBoletas.get(this.comboBoxMetodoPagoBoleta.getSelectedIndex());
 		MetodoPagoBoletaDAO daoMetodoPagoBoleta = new MetodoPagoBoletaDAO();
 		if (daoMetodoPagoBoleta.delete(metodoPagoBoletaSeleccionado) == true) {
-			JOptionPane.showMessageDialog(null, "M�todo de pago borrado exitosamente");
+			JOptionPane.showMessageDialog(null, "Método de pago borrado exitosamente");
 			dispose();
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "El m�todo de pago no se pudo borrar, ya que esta siendo usado en una boleta","Error DB", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "El método de pago no se pudo borrar, ya que esta siendo usado en una boleta","Error DB", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	

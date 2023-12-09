@@ -7,7 +7,7 @@ public class FechaGringaUtil {
 		int mesInt=0;
 		boolean fechaValidada = false;
 		
-		//Fecha (A�o-Mes-Dia)
+		//Fecha (Año-Mes-Dia)
 		if (fecha.length() == 10) {
 			String primerGuion = Character.toString(fecha.charAt(4));
 			String segundoGuion = Character.toString(fecha.charAt(7));

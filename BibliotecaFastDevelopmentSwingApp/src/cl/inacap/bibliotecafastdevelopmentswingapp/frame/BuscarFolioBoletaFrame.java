@@ -80,7 +80,7 @@ public class BuscarFolioBoletaFrame extends JInternalFrame {
 				List<Boleta> boletas = new BoletaDAO().getAll();
 				libros = new LibroDAO().getAll();
 				
-				String nombreColumnas[] = {"Folio", "Precio neto", "Precio con IVA", "Costo IVA", "Fecha de venta", "Hora de venta", "M�todo de pago", "Cliente", "Trabajador", "Venta"};
+				String nombreColumnas[] = {"Folio", "Precio neto", "Precio con IVA", "Costo IVA", "Fecha de venta", "Hora de venta", "Método de pago", "Cliente", "Trabajador", "Venta"};
 				
 				for (int i = 0; i < nombreColumnas.length; i++) {
 					mo.addColumn(nombreColumnas[i]);
@@ -177,7 +177,7 @@ public class BuscarFolioBoletaFrame extends JInternalFrame {
 		StartAudioUtil sau = new StartAudioUtil();
 		sau.reproducir("SonidoBoton", "wav");
 		
-		mo.setRowCount(0); //Esta l�nea borra todas las filas, no es necesario a�adirle nuevamente las columnas ya que simplemente borramos las filas.
+		mo.setRowCount(0); //Esta línea borra todas las filas, no es necesario añadirle nuevamente las columnas ya que simplemente borramos las filas.
 		
 		String clavePrimariaBoleta = this.textFieldBoleta.getText();
 		List<Boleta> boleta = new BoletaDAO().filtrarBoleta(clavePrimariaBoleta);
@@ -207,7 +207,7 @@ public class BuscarFolioBoletaFrame extends JInternalFrame {
 			
 			VentaLibroDAO daoVentaLibro = new VentaLibroDAO();
 			
-			//La lista de libros comprados se debe traer completa en el Opened y se debe hacer el filtrado con Java (De esta forma el JList se llenar� mas r�pido).
+			//La lista de libros comprados se debe traer completa en el Opened y se debe hacer el filtrado con Java (De esta forma el JList se llenará mas rápido).
 			List<VentaLibro> librosVendidos = new ArrayList<VentaLibro>();
 			librosVendidos = daoVentaLibro.filtrarVentaLibro(compraFKDeLaBoleta, "venta_id");
 			

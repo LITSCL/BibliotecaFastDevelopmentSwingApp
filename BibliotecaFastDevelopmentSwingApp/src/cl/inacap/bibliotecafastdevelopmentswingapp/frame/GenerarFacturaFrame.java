@@ -74,7 +74,7 @@ public class GenerarFacturaFrame extends JInternalFrame {
 				compras = new CompraDAO().getAll();
 				
 				if (distribuidores.isEmpty() == true || metodoPagoFacturas.isEmpty() == true) {
-					JOptionPane.showMessageDialog(null, "Debe haber un distribuidor y un m�todo de pago minimo registrados en el sistema para poder generar una factura");
+					JOptionPane.showMessageDialog(null, "Debe haber un distribuidor y un método de pago minimo registrados en el sistema para poder generar una factura");
 					dispose();
 				}
 				
@@ -272,7 +272,7 @@ public class GenerarFacturaFrame extends JInternalFrame {
 			for (int i=0 ; i<errores.size() ; i++) {
 				mensaje+="\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 			
 		if (errores.isEmpty() == true) {

@@ -74,7 +74,7 @@ public class MostrarIdiomaFrame extends JInternalFrame {
 	private void cargarTabla() {
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		mo.addColumn("Código");
+		mo.addColumn("CÃ³digo");
 		mo.addColumn("Nombre");
 		
 		for (Idioma id: idiomas) {

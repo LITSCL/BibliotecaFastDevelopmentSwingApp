@@ -84,7 +84,7 @@ public class BuscarIdiomaFrame extends JInternalFrame {
 		
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		String nombreColumnas[] = {"C�digo", "Nombre"};
+		String nombreColumnas[] = {"Código", "Nombre"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);
@@ -102,7 +102,7 @@ public class BuscarIdiomaFrame extends JInternalFrame {
 		String clavePrimariaIdioma = this.textFieldIdioma.getText();
 		List<Idioma> idioma = new IdiomaDAO().filtrarIdioma(clavePrimariaIdioma);
 		
-		String nombreColumnas[] = {"C�digo", "Nombre"};
+		String nombreColumnas[] = {"Código", "Nombre"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);

@@ -86,7 +86,7 @@ public class BuscarDistribuidorFrame extends JInternalFrame {
 		
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		String nombreColumnas[]= {"Rut", "Nombre", "Pa�s", "Comuna", "Calle", "N�mero", "Tel�fono", "A�os de servicio"};
+		String nombreColumnas[]= {"Rut", "Nombre", "País", "Comuna", "Calle", "Número", "Teléfono", "Años de servicio"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);
@@ -104,7 +104,7 @@ public class BuscarDistribuidorFrame extends JInternalFrame {
 		String clavePrimariaDistribuidor = this.textFieldDistribuidor.getText();
 		List<Distribuidor> distribuidor = new DistribuidorDAO().filtrarDistribuidor(clavePrimariaDistribuidor);
 		
-		String nombreColumnas[]= {"Rut", "Nombre", "Pa�s", "Comuna", "Calle", "N�mero", "Tel�fono", "A�os de servicio"};
+		String nombreColumnas[]= {"Rut", "Nombre", "País", "Comuna", "Calle", "Número", "Teléfono", "Años de servicio"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);

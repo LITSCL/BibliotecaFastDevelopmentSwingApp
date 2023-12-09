@@ -16,15 +16,15 @@ public class DistribuidorDAO {
 	public boolean save(Distribuidor di) {
 				boolean resultado;
 				try {
-					System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+					System.out.println("Conexión a la DB: " + bdUtil.conectar());
 					String sql = "INSERT INTO distribuidor" + "(rut, nombre, pais, comuna, calle, numero, telefono, year_servicio)" + " VALUES('" + di.getRut() + "','" + di.getNombre() + "','" + di.getPais() + "','" + di.getComuna() + "','" + di.getCalle() + "','" + di.getNumero() + "','" + di.getTelefono() + "','" + di.getYearServicio() + "')"; 
 					Statement st = bdUtil.getConexion().createStatement();
 					st.executeUpdate(sql);
 					resultado = true;
-					System.out.println("Ejecuci�n del SQL: " + resultado);
+					System.out.println("Ejecución del SQL: " + resultado);
 				} catch (Exception ex) {
 					resultado = false;
-					System.out.println("Ejecuci�n del SQL: " + resultado);
+					System.out.println("Ejecución del SQL: " + resultado);
 					
 				} finally { 
 					bdUtil.desconectar(); 
@@ -38,14 +38,14 @@ public class DistribuidorDAO {
 		boolean resultado;
 		try {
 			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT rut, nombre, pais, comuna, calle, numero, telefono, year_servicio" + " FROM distribuidor";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				Distribuidor di = new Distribuidor();
 				di.setRut(rs.getString(1));
@@ -62,7 +62,7 @@ public class DistribuidorDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			distribuidores = null;
 			
 		} finally { 
@@ -75,16 +75,16 @@ public class DistribuidorDAO {
 	public void delete(Distribuidor di) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM distribuidor" + " WHERE rut = ?";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 			st.setString(1, di.getRut());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch(Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally {
 			bdUtil.desconectar();
@@ -95,7 +95,7 @@ public class DistribuidorDAO {
 		
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			String sql = "UPDATE distribuidor SET nombre = ?" + ", pais = ?" + ", comuna = ?" + ", calle = ?" + ", numero = ?" + ", telefono = ?" + ", year_servicio = ?" + " WHERE rut = ?"; 
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
@@ -110,11 +110,11 @@ public class DistribuidorDAO {
 			
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
 			bdUtil.desconectar(); 
 
@@ -127,14 +127,14 @@ public class DistribuidorDAO {
 		
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT rut, nombre, pais, comuna, calle, numero, telefono, year_servicio" + " FROM distribuidor WHERE rut = " + "'" + filtro + "'";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				Distribuidor di = new Distribuidor();
 				di.setRut(rs.getString(1));
@@ -151,7 +151,7 @@ public class DistribuidorDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			distribuidores = null;
 			
 		} finally { 

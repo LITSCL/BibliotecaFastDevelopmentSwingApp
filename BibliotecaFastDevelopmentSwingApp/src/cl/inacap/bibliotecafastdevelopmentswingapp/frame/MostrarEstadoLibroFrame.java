@@ -71,8 +71,8 @@ public class MostrarEstadoLibroFrame extends JInternalFrame {
 	public void cargarTabla() {
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		mo.addColumn("C�digo");
-		mo.addColumn("Descripci�n");
+		mo.addColumn("Código");
+		mo.addColumn("Descripción");
 		
 		for(EstadoLibro el : estadoLibros) {
 			Object []fila = new Object[2];

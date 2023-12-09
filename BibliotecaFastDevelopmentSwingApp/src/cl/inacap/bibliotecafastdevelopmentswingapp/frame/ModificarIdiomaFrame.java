@@ -132,10 +132,10 @@ public class ModificarIdiomaFrame extends JInternalFrame {
 				JOptionPane.showMessageDialog(null, "Idioma modificado correctamente");
 				this.dispose();
 			}else {
-				JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 			}
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "- No a seleccionado ning�n idioma", "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "- No a seleccionado ningún idioma", "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}	
 	}
 	

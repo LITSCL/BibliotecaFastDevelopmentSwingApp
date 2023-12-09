@@ -15,15 +15,15 @@ public class IdiomaDAO {
 	public boolean save(Idioma id) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO idioma" + "(codigo, nombre)" + " VALUES('" + id.getCodigo() + "','" + id.getNombre() + "')"; 
 			Statement st = bdUtil.getConexion().createStatement();
 			st.executeUpdate(sql);
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
 		bdUtil.desconectar(); 
@@ -36,14 +36,14 @@ public class IdiomaDAO {
 		boolean resultado;
 		
 		try{
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			Statement st = bdUtil.getConexion().createStatement();
 			String sql = "SELECT codigo, nombre" + " FROM idioma";
 			
 			ResultSet rs = st.executeQuery(sql);
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 			while (rs.next() == true) {
 				Idioma id = new Idioma();
@@ -55,7 +55,7 @@ public class IdiomaDAO {
 			rs.close();
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			idiomas = null;
 			
 		} finally {
@@ -68,16 +68,16 @@ public class IdiomaDAO {
 	public void delete(Idioma id) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM idioma" + " WHERE codigo = ?";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 			st.setString(1, id.getCodigo());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally {
 			bdUtil.desconectar();
@@ -89,7 +89,7 @@ public class IdiomaDAO {
 		boolean resultado;
 		try {
 			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			String sql = "UPDATE idioma SET nombre = ?" + " WHERE codigo = ?"; 
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
@@ -97,11 +97,11 @@ public class IdiomaDAO {
 			st.setString(2, id.getCodigo());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
 			bdUtil.desconectar(); 
 
@@ -114,14 +114,14 @@ public class IdiomaDAO {
 		boolean resultado;
 		
 		try{
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			Statement st = bdUtil.getConexion().createStatement();
 			String sql = "SELECT codigo, nombre" + " FROM idioma WHERE codigo = " + "'" + filtro + "'";
 			
 			ResultSet rs = st.executeQuery(sql);
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 			while (rs.next() == true) {
 				Idioma id = new Idioma();
@@ -133,7 +133,7 @@ public class IdiomaDAO {
 			rs.close();
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			idiomas = null;
 			
 		} finally {

@@ -169,12 +169,12 @@ public class ModificarAutorFrame extends JInternalFrame {
 				this.dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 				
 			}
 			
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "- No a seleccionado ning�n autor","Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "- No a seleccionado ningún autor", "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 	}
 	

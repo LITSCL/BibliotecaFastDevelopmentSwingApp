@@ -47,7 +47,7 @@ public class BuscarCategoriaFrame extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public BuscarCategoriaFrame() {
-		setTitle("Buscar Categor�a");
+		setTitle("Buscar Categoría");
 		setClosable(true);
 		setBounds(100, 100, 700, 445);
 		getContentPane().setLayout(null);
@@ -84,7 +84,7 @@ public class BuscarCategoriaFrame extends JInternalFrame {
 		
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		String nombreColumnas[] = {"C�digo", "Nombre"};
+		String nombreColumnas[] = {"Código", "Nombre"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);
@@ -102,7 +102,7 @@ public class BuscarCategoriaFrame extends JInternalFrame {
 		String clavePrimariaCategoria = this.textFieldCategoria.getText();
 		List<Categoria> categoria = new CategoriaDAO().filtrarCategoria(clavePrimariaCategoria);
 		
-		String nombreColumnas[]= {"C�digo", "Nombre"};
+		String nombreColumnas[]= {"Código", "Nombre"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);
@@ -120,7 +120,7 @@ public class BuscarCategoriaFrame extends JInternalFrame {
 			tableCategoria.setModel(mo);
 			
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "La categor�a no existe en el sistema");
+			JOptionPane.showMessageDialog(null, "La categoría no existe en el sistema");
 		}
 	}
 	

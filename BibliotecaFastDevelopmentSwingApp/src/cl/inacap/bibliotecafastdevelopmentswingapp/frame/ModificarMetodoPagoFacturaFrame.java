@@ -69,7 +69,7 @@ public class ModificarMetodoPagoFacturaFrame extends JInternalFrame {
 					
 					listMetodoPagoFactura.setModel(mo);
 						
-					comboBoxAtributos.addItem("Descripci�n");
+					comboBoxAtributos.addItem("Descripción");
 				}
 			}
 		});
@@ -119,13 +119,13 @@ public class ModificarMetodoPagoFacturaFrame extends JInternalFrame {
 			
 			switch (atributoSeleccionado) {
 			
-			case "Descripci�n":
+			case "Descripción":
 				metodoPagoFacturaSeleccionado.setDescripcion(valorModificado);
 				if (metodoPagoFacturaSeleccionado.getDescripcion().isEmpty() == false) {
 					validado = true;
 				}
 				else {
-					mensaje = "- Descripci�n no valida";
+					mensaje = "- Descripción no valida";
 				}
 				break;
 			}
@@ -133,14 +133,14 @@ public class ModificarMetodoPagoFacturaFrame extends JInternalFrame {
 			if (validado == true) {
 				MetodoPagoFacturaDAO daoMetodoPagoFactura = new MetodoPagoFacturaDAO();
 				daoMetodoPagoFactura.update(metodoPagoFacturaSeleccionado);
-				JOptionPane.showMessageDialog(null, "M�todo de pago modificado correctamente");
+				JOptionPane.showMessageDialog(null, "Método de pago modificado correctamente");
 				this.dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 			}
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "- No a seleccionado ning�n m�todo de pago", "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "- No a seleccionado ningún método de pago", "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 	}
 	

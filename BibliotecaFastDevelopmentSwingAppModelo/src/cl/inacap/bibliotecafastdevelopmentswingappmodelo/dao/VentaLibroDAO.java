@@ -18,13 +18,13 @@ private BDUtil bdUtil = new BDUtil();
 
 		for (Libro cl : libros) {
 			try {
-				System.out.println("Conexi�n a la DB VentaLibro: " + bdUtil.conectar());
+				System.out.println("Conexión a la DB VentaLibro: " + bdUtil.conectar());
 				String sql = "INSERT INTO venta_libro" + "(venta_id, libro_numero_de_serie)" + " VALUES('" + ventaFK + "','" + cl.getNumeroDeSerie() + "')"; 
 				Statement st = bdUtil.getConexion().createStatement();
 				
 				st.executeUpdate(sql);
 				resultado = true;
-				System.out.println("Ejecuci�n del SQL VentaLibro: " + resultado);
+				System.out.println("Ejecución del SQL VentaLibro: " + resultado);
 				
 				
 				String sql2 = "UPDATE libro SET estado_libro_codigo = ?" + " WHERE numero_de_serie = ?"; 
@@ -33,10 +33,10 @@ private BDUtil bdUtil = new BDUtil();
 				ps.setInt(2, cl.getNumeroDeSerie());
 
 				ps.executeUpdate();
-				System.out.println("Ejecuci�n del SQL VentaLibro: " + resultado);
+				System.out.println("Ejecución del SQL VentaLibro: " + resultado);
 			} catch (Exception ex) {
 				resultado = false;
-				System.out.println("Ejecuci�n del SQL VentaLibro: " + resultado);
+				System.out.println("Ejecución del SQL VentaLibro: " + resultado);
 				
 			} finally { 
 				bdUtil.desconectar(); 
@@ -50,7 +50,7 @@ private BDUtil bdUtil = new BDUtil();
 		
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT id, venta_id, libro_numero_de_serie" + " FROM venta_libro";
 			sql+=" WHERE " + columna + "=" + "'" + filtro + "'";
@@ -58,7 +58,7 @@ private BDUtil bdUtil = new BDUtil();
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				VentaLibro vl = new VentaLibro();
 				vl.setId(rs.getInt(1));
@@ -70,7 +70,7 @@ private BDUtil bdUtil = new BDUtil();
 			rs.close(); 
 		} catch(Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			ventaLibros = null;
 			
 		} finally { 
@@ -84,21 +84,21 @@ private BDUtil bdUtil = new BDUtil();
 		int cantidadLibros = 0;
 		boolean resultado = false;
 		try {			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT id" + " FROM venta_libro";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				cantidadLibros++;
 			}
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
 			bdUtil.desconectar(); 

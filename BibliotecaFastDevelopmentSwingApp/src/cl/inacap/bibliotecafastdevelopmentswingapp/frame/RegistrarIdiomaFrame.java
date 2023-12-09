@@ -88,7 +88,7 @@ public class RegistrarIdiomaFrame extends JInternalFrame {
 		
 		String codigo = this.textFieldCodigo.getText().trim();
 		if (codigo.isEmpty()) {
-			errores.add("C�digo no valido");
+			errores.add("Código no valido");
 		}
 		
 		String nombre = this.textFieldNombre.getText().trim();
@@ -101,7 +101,7 @@ public class RegistrarIdiomaFrame extends JInternalFrame {
 			for (int i = 0 ; i < errores.size() ; i++) {
 				mensaje+="\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 		
 		if (errores.isEmpty() == true) {
@@ -115,7 +115,7 @@ public class RegistrarIdiomaFrame extends JInternalFrame {
 				dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "El c�digo (Y/O) el nombre ya fueron ingresados anteriormente, ingrese datos diferentes", "Error DB", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "El código (Y/O) el nombre ya fueron ingresados anteriormente, ingrese datos diferentes", "Error DB", JOptionPane.ERROR_MESSAGE);
 			}	
 		}
 	}

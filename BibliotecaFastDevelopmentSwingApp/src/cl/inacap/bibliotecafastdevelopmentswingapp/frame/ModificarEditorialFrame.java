@@ -134,11 +134,11 @@ public class ModificarEditorialFrame extends JInternalFrame {
 				this.dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null,mensaje,"Error de validaci�n",JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null,mensaje,"Error de validación", JOptionPane.WARNING_MESSAGE);
 			}
 			
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "- No a seleccionado ninguna editorial", "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "- No a seleccionado ninguna editorial", "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}	
 	}
 

@@ -74,14 +74,14 @@ public class MostrarLibroFrame extends JInternalFrame {
 	private void cargarTabla() {
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		mo.addColumn("Número de serie");
+		mo.addColumn("NÃºmero de serie");
 		mo.addColumn("ISBN");
 		mo.addColumn("Titulo");
-		mo.addColumn("Número de páginas");
+		mo.addColumn("NÃºmero de pÃ¡ginas");
 		mo.addColumn("Precio de referencia");
-		mo.addColumn("Fecha de publicación");
-		mo.addColumn("Código de estado");
-		mo.addColumn("Código de editorial");
+		mo.addColumn("Fecha de publicaciÃ³n");
+		mo.addColumn("CÃ³digo de estado");
+		mo.addColumn("CÃ³digo de editorial");
 		
 		for (Libro li : libros) {
 			Object filas[] = new Object[8];

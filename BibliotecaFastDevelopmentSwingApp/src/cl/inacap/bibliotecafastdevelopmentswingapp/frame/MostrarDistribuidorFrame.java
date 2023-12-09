@@ -79,9 +79,9 @@ public class MostrarDistribuidorFrame extends JInternalFrame {
 		mo.addColumn("Pais");
 		mo.addColumn("Comuna");
 		mo.addColumn("Calle");
-		mo.addColumn("N�mero");
+		mo.addColumn("Número");
 		mo.addColumn("Telefono");
-		mo.addColumn("A�os de servicio");
+		mo.addColumn("Años de servicio");
 		
 		for (Distribuidor di : distribuidores){
 			Object []fila = new Object[8];

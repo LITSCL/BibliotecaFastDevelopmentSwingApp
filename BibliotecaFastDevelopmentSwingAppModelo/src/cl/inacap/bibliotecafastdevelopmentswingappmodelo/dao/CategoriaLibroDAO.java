@@ -14,15 +14,15 @@ public class CategoriaLibroDAO {
 		
 		for (Categoria ca : categorias) {
 			try {
-				System.out.println("Conexi�n a la DB Categoria: " + bdUtil.conectar());
+				System.out.println("Conexión a la DB Categoria: " + bdUtil.conectar());
 				String sql = "INSERT INTO categoria_libro" + "(libro_numero_de_serie, categoria_codigo)" + " VALUES('" + libroFK + "','" + ca.getCodigo() + "')"; 
 				Statement st = bdUtil.getConexion().createStatement();
 				st.executeUpdate(sql);
 				resultado = true;
-				System.out.println("Ejecuci�n del SQL Categoria: " + resultado);
+				System.out.println("Ejecución del SQL Categoria: " + resultado);
 			} catch (Exception ex) {
 				resultado = false;
-				System.out.println("Ejecuci�n del SQL Categoria: " + resultado);
+				System.out.println("Ejecución del SQL Categoria: " + resultado);
 				
 			} finally { 
 			bdUtil.desconectar(); 

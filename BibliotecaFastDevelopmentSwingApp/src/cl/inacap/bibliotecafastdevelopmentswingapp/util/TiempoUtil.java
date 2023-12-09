@@ -8,8 +8,8 @@ package cl.inacap.bibliotecafastdevelopmentswingapp.util;
 public class TiempoUtil {
 	
 	/**
-	 * Este m�todo valida el formato Time.
-	 * @param tiempo Este par�metro es el formatoo Time ingresado por el usuario.
+	 * Este método valida el formato Time.
+	 * @param tiempo Este parámetro es el formatoo Time ingresado por el usuario.
 	 * @return Retorna true si el formato es valido, de lo contrario retorna false.
 	 */
 	public boolean validarHora(String tiempo) {

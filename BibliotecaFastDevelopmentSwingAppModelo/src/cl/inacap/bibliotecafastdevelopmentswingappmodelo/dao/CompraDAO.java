@@ -18,25 +18,25 @@ public class CompraDAO {
 	private BDUtil bdUtil = new BDUtil();
 	
 	/**
-	 * Este m�todo permite agregar un registro a la tabla compra de la base de datos.
+	 * Este método permite agregar un registro a la tabla compra de la base de datos.
 	 * @param co Es el objeto a agregar en la base de datos.
-	 * @param estadoFK Este par�metro hace referencia a la clave for�nea de la tabla estado.
+	 * @param estadoFK Este parámetro hace referencia a la clave foránea de la tabla estado.
 	 * @return Retorna true si se agrego exitosamente el registro, en caso contrario retorna false.
 	 */
 	public boolean save(double precio) {
 		boolean resultado;
 		try {
 			//ACA SE GENERA LA COMPRA.
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO compra" + "(precio)" + " VALUES('" + precio + "')"; 
 			Statement st = bdUtil.getConexion().createStatement();
 			st.executeUpdate(sql);
 			
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
 		bdUtil.desconectar(); 
@@ -50,14 +50,14 @@ public class CompraDAO {
 		boolean resultado;
 		try {
 			
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT id, precio" + " FROM compra";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 		
 			ResultSet rs = st.executeQuery();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next()) { 
 				Compra co = new Compra();
 				co.setId(rs.getInt(1));
@@ -68,7 +68,7 @@ public class CompraDAO {
 			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			compras = null;
 			
 		} finally { 

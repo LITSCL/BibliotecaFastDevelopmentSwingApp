@@ -13,15 +13,15 @@ private BDUtil bdUtil = new BDUtil();
 
 		for (Object autor : autores) {
 			try {
-				System.out.println("Conexi�n a la DB Autor: " + bdUtil.conectar());
+				System.out.println("Conexión a la DB Autor: " + bdUtil.conectar());
 				String sql = "INSERT INTO autor_libro" + "(libro_numero_de_serie, autor_codigo)" + " VALUES('" + libroFK + "','" + autor + "')"; 
 				Statement st = bdUtil.getConexion().createStatement();
 				st.executeUpdate(sql);
 				resultado = true;
-				System.out.println("Ejecuci�n del SQL Autor: " + resultado);
+				System.out.println("Ejecución del SQL Autor: " + resultado);
 			} catch (Exception ex) {
 				resultado = false;
-				System.out.println("Ejecuci�n del SQL Autor: " + resultado);
+				System.out.println("Ejecución del SQL Autor: " + resultado);
 				
 			} finally { 
 			bdUtil.desconectar(); 

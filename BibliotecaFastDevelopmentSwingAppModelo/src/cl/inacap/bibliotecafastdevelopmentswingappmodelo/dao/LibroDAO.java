@@ -18,22 +18,22 @@ public class LibroDAO {
 	private BDUtil bdUtil = new BDUtil();
 	
 	/**
-	 * Este m�todo permite agregar un registro a la tabla libro de la base de datos.
+	 * Este método permite agregar un registro a la tabla libro de la base de datos.
 	 * @param li Es el objeto a agregar en la base de datos.
 	 * @return Retorna true si se agrego exitosamente el registro, en caso contrario retorna false.
 	 */
 	public boolean save(Libro li) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO libro" + "(numero_de_serie, isbn, titulo, numero_de_paginas, precio_de_referencia, fecha_de_publicacion, estado_libro_codigo, editorial_codigo)" + " VALUES('" + li.getNumeroDeSerie() + "','" + li.getIsbn() + "','" + li.getTitulo() + "','"+li.getNumeroDePaginas() + "','" + li.getPrecioDeReferencia() + "','" + li.getFechaDePublicacion() + "','"+li.getEstadoLibroFK() + "','" + li.getEditorialFK() + "')"; 
 			Statement st = bdUtil.getConexion().createStatement();
 			st.executeUpdate(sql);
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
 			bdUtil.desconectar(); 
@@ -46,14 +46,14 @@ public class LibroDAO {
 		boolean resultado;
 		
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			Statement st = bdUtil.getConexion().createStatement();
 			String sql = "SELECT numero_de_serie, isbn, titulo, numero_de_paginas, precio_de_referencia, fecha_de_publicacion, estado_libro_codigo, editorial_codigo" + " FROM libro";
 			
 			ResultSet rs = st.executeQuery(sql);
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			while (rs.next() == true) {
 				Libro li = new Libro();
 				li.setNumeroDeSerie(rs.getInt(1));
@@ -70,7 +70,7 @@ public class LibroDAO {
 			rs.close();
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			libros = null;
 			
 		} finally {
@@ -83,16 +83,16 @@ public class LibroDAO {
 	public void delete(Libro li) {
 		boolean resultado;
 		try {
-			System.out.println("Conexi�n a la DB: " + bdUtil.conectar());
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM libro" + " WHERE numero_de_serie = ?";
 			PreparedStatement st = bdUtil.getConexion().prepareStatement(sql); 
 			st.setInt(1, li.getNumeroDeSerie());
 			st.executeUpdate();
 			resultado = true;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 		} catch (Exception ex) {
 			resultado = false;
-			System.out.println("Ejecuci�n del SQL: " + resultado);
+			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally {
 			bdUtil.desconectar();

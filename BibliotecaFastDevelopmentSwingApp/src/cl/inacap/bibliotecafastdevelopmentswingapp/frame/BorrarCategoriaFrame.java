@@ -65,7 +65,7 @@ public class BorrarCategoriaFrame extends JInternalFrame {
 				
 			}
 		});
-		setTitle("Borrar Categor�a");
+		setTitle("Borrar Categoría");
 		setClosable(true);
 		setBounds(100, 100, 700, 445);
 		getContentPane().setLayout(null);
@@ -101,7 +101,7 @@ public class BorrarCategoriaFrame extends JInternalFrame {
 		
 		new CategoriaDAO().delete(categoriaSeleccionada);
 		
-		JOptionPane.showMessageDialog(null, "Categor�a borrada exitosamente");
+		JOptionPane.showMessageDialog(null, "Categoría borrada exitosamente");
 		dispose();
 	}
 

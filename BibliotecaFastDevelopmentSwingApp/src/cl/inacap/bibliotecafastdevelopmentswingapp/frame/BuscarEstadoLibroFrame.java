@@ -86,7 +86,7 @@ public class BuscarEstadoLibroFrame extends JInternalFrame {
 		
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		String nombreColumnas[] = {"C�digo","Nombre"};
+		String nombreColumnas[] = {"Código","Nombre"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);
@@ -104,7 +104,7 @@ public class BuscarEstadoLibroFrame extends JInternalFrame {
 		String clavePrimariaEstadoLibro = this.textFieldIEstadoLibro.getText();
 		List<EstadoLibro> estadoLibro = new EstadoLibroDAO().filtrarEstadoLibro(clavePrimariaEstadoLibro);
 		
-		String nombreColumnas[] = {"C�digo", "Nombre"};
+		String nombreColumnas[] = {"Código", "Nombre"};
 		
 		for (int i = 0; i < nombreColumnas.length; i++) {
 			mo.addColumn(nombreColumnas[i]);

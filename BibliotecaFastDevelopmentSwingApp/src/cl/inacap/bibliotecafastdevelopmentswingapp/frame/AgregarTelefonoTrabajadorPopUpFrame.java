@@ -86,7 +86,7 @@ public class AgregarTelefonoTrabajadorPopUpFrame extends JInternalFrame {
 					dispose();
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "El n�mero de telefono debe tener el formato: 123456789");
+					JOptionPane.showMessageDialog(null, "El número de telefono debe tener el formato: 123456789");
 				}	
 			}
 		});

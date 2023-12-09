@@ -77,7 +77,7 @@ public class MostrarAutorFrame extends JInternalFrame {
 	public void cargarTabla() {
 		DefaultTableModel mo = new DefaultTableModel();
 		
-		mo.addColumn("C�digo");
+		mo.addColumn("Código");
 		mo.addColumn("Nombre");
 		mo.addColumn("Apellido paterno");
 		mo.addColumn("Apellido materno");

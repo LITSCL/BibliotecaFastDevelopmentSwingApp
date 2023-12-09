@@ -73,7 +73,7 @@ public class ModificarCategoriaFrame extends JInternalFrame {
 				}
 			}
 		});
-		setTitle("Modificar Categor�a");
+		setTitle("Modificar Categoría");
 		setClosable(true);
 		setBounds(100, 100, 700, 445);
 		getContentPane().setLayout(null);
@@ -127,15 +127,15 @@ public class ModificarCategoriaFrame extends JInternalFrame {
 			
 			if (validado == true) {
 				new CategoriaDAO().update(categoriaSeleccionada);
-				JOptionPane.showMessageDialog(null, "Categor�a modificada correctamente");
+				JOptionPane.showMessageDialog(null, "Categoría modificada correctamente");
 				this.dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "- Nombre no valido", "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "- Nombre no valido", "Error de validación", JOptionPane.WARNING_MESSAGE);
 			}
 
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "- No a seleccionado ninguna categor�a", "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "- No a seleccionado ninguna categoría", "Error de validación", JOptionPane.WARNING_MESSAGE);
 			
 		}
 	}

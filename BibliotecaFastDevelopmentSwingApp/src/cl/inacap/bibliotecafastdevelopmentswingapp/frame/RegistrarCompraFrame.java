@@ -82,7 +82,7 @@ public class RegistrarCompraFrame extends JInternalFrame {
 					}
 				}
 				if (disponible == false) {
-					JOptionPane.showMessageDialog(null, "El estado con descripci�n 'No disponible' no existe, por lo cual no se puede efectuar una compra");
+					JOptionPane.showMessageDialog(null, "El estado con descripción 'No disponible' no existe, por lo cual no se puede efectuar una compra");
 					dispose();
 				}
 				
@@ -96,7 +96,7 @@ public class RegistrarCompraFrame extends JInternalFrame {
 				}
 				
 				if (disponible == false) {
-					JOptionPane.showMessageDialog(null, "El estado con descripci�n 'Disponible' no existe, por lo cual no se puede efectuar una compra");
+					JOptionPane.showMessageDialog(null, "El estado con descripción 'Disponible' no existe, por lo cual no se puede efectuar una compra");
 					dispose();
 				}
 				
@@ -189,7 +189,7 @@ public class RegistrarCompraFrame extends JInternalFrame {
 					librosComprados.add(li);
 				}
 						
-				//Arreglar esto por que no deber�a ser necesario este condicional.
+				//Arreglar esto por que no debería ser necesario este condicional.
 				if (precio < 0) {
 					precio = precio * -1;
 				}
@@ -238,7 +238,7 @@ public class RegistrarCompraFrame extends JInternalFrame {
 		List<String> errores = new ArrayList<String>();
 		
 		if (precio == 0) {
-			errores.add("El carrito esta vac�o");
+			errores.add("El carrito esta vacío");
 		}
 			
 		if (errores.isEmpty()) {
@@ -259,7 +259,7 @@ public class RegistrarCompraFrame extends JInternalFrame {
 			for(int i = 0 ; i < errores.size() ; i++) {
 				mensaje+="\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}	
 	}
 	

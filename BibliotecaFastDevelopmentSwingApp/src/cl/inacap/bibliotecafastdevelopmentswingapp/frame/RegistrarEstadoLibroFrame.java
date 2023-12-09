@@ -99,12 +99,12 @@ public class RegistrarEstadoLibroFrame extends JInternalFrame {
 		
 		String codigo = this.textFieldCodigo.getText().trim();
 		if (codigo.isEmpty()) {
-			errores.add("C�digo no valido");
+			errores.add("Código no valido");
 		}
 		
 		String descripcion = this.textFieldDescripcion.getText().trim();
 		if (descripcion.isEmpty()) {
-			errores.add("Descripci�n no valida");
+			errores.add("Descripción no valida");
 		}
 		
 		if (errores.isEmpty() == false) {
@@ -112,7 +112,7 @@ public class RegistrarEstadoLibroFrame extends JInternalFrame {
 			for (int i = 0 ; i < errores.size() ; i++) {
 				mensaje+="\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 		
 		if (errores.isEmpty()) {
@@ -126,7 +126,7 @@ public class RegistrarEstadoLibroFrame extends JInternalFrame {
 				dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "El c�digo (Y/O) la descripci�n ya fueron ingresados anteriormente, ingrese datos diferentes", "Error DB", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "El código (Y/O) la descripción ya fueron ingresados anteriormente, ingrese datos diferentes", "Error DB", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

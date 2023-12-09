@@ -90,12 +90,12 @@ public class RegistrarMetodoPagoBoletaFrame extends JInternalFrame {
 		
 		String codigo = this.textFieldCodigo.getText().trim();
 		if (codigo.isEmpty()) {
-			errores.add("C�digo no valido");
+			errores.add("Código no valido");
 		}
 		
 		String descripcion = this.textAreaDescripcion.getText().trim();
 		if (descripcion.isEmpty()) {
-			errores.add("Descripci�n no valida");
+			errores.add("Descripción no valida");
 		}
 		
 		if (errores.isEmpty() == false) {
@@ -103,7 +103,7 @@ public class RegistrarMetodoPagoBoletaFrame extends JInternalFrame {
 			for (int i = 0 ; i < errores.size() ; i++) {
 				mensaje+= "\n" + "- " + errores.get(i);
 			}
-			JOptionPane.showMessageDialog(null, mensaje, "Error de validaci�n", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, "Error de validación", JOptionPane.WARNING_MESSAGE);
 		}
 		
 		if (errores.isEmpty()) {
@@ -112,11 +112,11 @@ public class RegistrarMetodoPagoBoletaFrame extends JInternalFrame {
 			mpb.setDescripcion(descripcion);
 			
 			if (new MetodoPagoBoletaDAO().save(mpb) == true) {
-				JOptionPane.showMessageDialog(null, "M�todo de pago registrado correctamente");
+				JOptionPane.showMessageDialog(null, "Método de pago registrado correctamente");
 				dispose();
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "El c�digo ya fue ingresado anteriormente, ingrese uno diferente", "Error DB", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "El código ya fue ingresado anteriormente, ingrese uno diferente", "Error DB", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
