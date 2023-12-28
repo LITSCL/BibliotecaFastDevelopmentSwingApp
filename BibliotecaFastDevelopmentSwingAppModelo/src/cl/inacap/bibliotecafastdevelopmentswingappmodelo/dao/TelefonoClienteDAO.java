@@ -38,8 +38,8 @@ public class TelefonoClienteDAO {
 	}
 	
 	public List<TelefonoCliente> filtrarTelefonoCliente(String filtro) {
-		
 		List<TelefonoCliente> telefonosCliente = new ArrayList<TelefonoCliente>();
+
 		boolean resultado;
 		try {
 				
@@ -65,7 +65,7 @@ public class TelefonoClienteDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 			telefonosCliente = null;
 				
-		}finally { 
+		} finally { 
 			bdUtil.desconectar();
 		}
 		return telefonosCliente;

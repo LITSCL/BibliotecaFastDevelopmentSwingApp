@@ -35,7 +35,7 @@ public class BoletaDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
-		bdUtil.desconectar(); 
+			bdUtil.desconectar(); 
 		}
 		return resultado;
 	}

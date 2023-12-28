@@ -26,7 +26,6 @@ private BDUtil bdUtil = new BDUtil();
 				resultado = true;
 				System.out.println("Ejecución del SQL CompraLibro: " + resultado);
 				
-				
 				String sql2 = "UPDATE libro SET estado_libro_codigo = ?" + " WHERE numero_de_serie = ?"; 
 				PreparedStatement ps = bdUtil.getConexion().prepareStatement(sql2); 
 				ps.setString(1, codigoFK);
@@ -72,7 +71,6 @@ private BDUtil bdUtil = new BDUtil();
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			compraLibros = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}

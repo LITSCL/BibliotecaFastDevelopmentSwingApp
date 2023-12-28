@@ -26,7 +26,7 @@ public class IdiomaDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
-		bdUtil.desconectar(); 
+			bdUtil.desconectar(); 
 		}
 		return resultado;
 	}
@@ -85,7 +85,6 @@ public class IdiomaDAO {
 	}
 	
 	public void update(Idioma id) {
-		
 		boolean resultado;
 		try {
 			
@@ -106,14 +105,13 @@ public class IdiomaDAO {
 			bdUtil.desconectar(); 
 
 		}
-		
 	}
 	
 	public List<Idioma> filtrarIdioma(String filtro) {
 		List<Idioma> idiomas = new ArrayList<Idioma>();
 		boolean resultado;
 		
-		try{
+		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			Statement st = bdUtil.getConexion().createStatement();

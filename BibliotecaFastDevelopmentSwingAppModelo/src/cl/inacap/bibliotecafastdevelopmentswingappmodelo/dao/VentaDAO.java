@@ -36,7 +36,6 @@ private BDUtil bdUtil = new BDUtil();
 		
 		boolean resultado;
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT id, precio, cliente_rut, trabajador_rut" + " FROM venta";

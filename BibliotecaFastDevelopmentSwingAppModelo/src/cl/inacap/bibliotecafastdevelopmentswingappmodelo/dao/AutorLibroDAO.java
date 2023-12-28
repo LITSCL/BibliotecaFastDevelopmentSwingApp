@@ -28,5 +28,5 @@ private BDUtil bdUtil = new BDUtil();
 			}
 		}
 		return resultado;
-		}
+	}
 }

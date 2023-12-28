@@ -25,7 +25,7 @@ public class CategoriaLibroDAO {
 				System.out.println("Ejecución del SQL Categoria: " + resultado);
 				
 			} finally { 
-			bdUtil.desconectar(); 
+				bdUtil.desconectar(); 
 			}
 		}
 		return resultado;

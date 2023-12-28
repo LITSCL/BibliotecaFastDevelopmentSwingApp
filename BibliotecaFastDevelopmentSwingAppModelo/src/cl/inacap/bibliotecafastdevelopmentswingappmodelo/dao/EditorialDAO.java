@@ -86,7 +86,6 @@ public class EditorialDAO {
 	}
 	
 	public void update(Editorial ed) {
-		
 		boolean resultado;
 		try {
 			
@@ -107,7 +106,6 @@ public class EditorialDAO {
 			bdUtil.desconectar(); 
 
 		}
-		
 	}
 	
 	public List<Editorial> filtrarEditorial(String filtro) {

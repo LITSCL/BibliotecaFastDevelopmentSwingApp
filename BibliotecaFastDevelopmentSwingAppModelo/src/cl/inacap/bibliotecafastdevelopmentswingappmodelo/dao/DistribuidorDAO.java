@@ -14,30 +14,29 @@ public class DistribuidorDAO {
 	private BDUtil bdUtil = new BDUtil();
 	
 	public boolean save(Distribuidor di) {
-				boolean resultado;
-				try {
-					System.out.println("Conexión a la DB: " + bdUtil.conectar());
-					String sql = "INSERT INTO distribuidor" + "(rut, nombre, pais, comuna, calle, numero, telefono, year_servicio)" + " VALUES('" + di.getRut() + "','" + di.getNombre() + "','" + di.getPais() + "','" + di.getComuna() + "','" + di.getCalle() + "','" + di.getNumero() + "','" + di.getTelefono() + "','" + di.getYearServicio() + "')"; 
-					Statement st = bdUtil.getConexion().createStatement();
-					st.executeUpdate(sql);
-					resultado = true;
-					System.out.println("Ejecución del SQL: " + resultado);
-				} catch (Exception ex) {
-					resultado = false;
-					System.out.println("Ejecución del SQL: " + resultado);
-					
-				} finally { 
-					bdUtil.desconectar(); 
-				}
-				return resultado;
-			}
+		boolean resultado;
+		try {
+			System.out.println("Conexión a la DB: " + bdUtil.conectar());
+			String sql = "INSERT INTO distribuidor" + "(rut, nombre, pais, comuna, calle, numero, telefono, year_servicio)" + " VALUES('" + di.getRut() + "','" + di.getNombre() + "','" + di.getPais() + "','" + di.getComuna() + "','" + di.getCalle() + "','" + di.getNumero() + "','" + di.getTelefono() + "','" + di.getYearServicio() + "')"; 
+			Statement st = bdUtil.getConexion().createStatement();
+			st.executeUpdate(sql);
+			resultado = true;
+			System.out.println("Ejecución del SQL: " + resultado);
+		} catch (Exception ex) {
+			resultado = false;
+			System.out.println("Ejecución del SQL: " + resultado);
+			
+		} finally { 
+			bdUtil.desconectar(); 
+		}
+		return resultado;
+	}
 	
 	public List<Distribuidor> getAll() {
 		List<Distribuidor> distribuidores = new ArrayList<Distribuidor>();
 		
 		boolean resultado;
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT rut, nombre, pais, comuna, calle, numero, telefono, year_servicio" + " FROM distribuidor";
@@ -91,8 +90,7 @@ public class DistribuidorDAO {
 		}
 	}
 	
-	public void update(Distribuidor di) {
-		
+	public void update(Distribuidor di) {	
 		boolean resultado;
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
@@ -119,7 +117,6 @@ public class DistribuidorDAO {
 			bdUtil.desconectar(); 
 
 		}
-		
 	}
 	
 	public List<Distribuidor> filtrarDistribuidor(String filtro) {

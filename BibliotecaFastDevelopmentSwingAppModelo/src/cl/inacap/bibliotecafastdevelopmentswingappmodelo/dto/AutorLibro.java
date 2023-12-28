@@ -8,20 +8,24 @@ public class AutorLibro {
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getLibroFK() {
 		return libroFK;
 	}
+
 	public void setLibroFK(int libroFK) {
 		this.libroFK = libroFK;
 	}
+
 	public String getAutorFK() {
 		return autorFK;
 	}
+	
 	public void setAutorFK(String autorFK) {
 		this.autorFK = autorFK;
 	}
-	
 }

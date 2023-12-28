@@ -85,7 +85,6 @@ public class MetodoPagoBoletaDAO {
 	public void update(MetodoPagoBoleta mpb) {	
 		boolean resultado;
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			String sql = "UPDATE metodo_de_pago_boleta SET descripcion = ?" + " WHERE codigo = ?"; 
@@ -103,6 +102,5 @@ public class MetodoPagoBoletaDAO {
 		} finally { 
 			bdUtil.desconectar(); 
 		}
-		
 	}
 }

@@ -3,8 +3,8 @@ package cl.inacap.bibliotecafastdevelopmentswingapp.util;
 public class FechaGringaUtil {
 	public boolean validarFechaGringa(String fecha) {
 		int contador = 0;
-		int diaInt=0;
-		int mesInt=0;
+		int diaInt = 0;
+		int mesInt = 0;
 		boolean fechaValidada = false;
 		
 		//Fecha (Año-Mes-Dia)

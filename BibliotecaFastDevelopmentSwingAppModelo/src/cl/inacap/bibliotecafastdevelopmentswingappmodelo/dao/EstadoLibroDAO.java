@@ -85,7 +85,7 @@ public class EstadoLibroDAO {
 		return resultado;
 	}
 	
-	public void update(EstadoLibro el){
+	public void update(EstadoLibro el) {
 		boolean resultado;
 		try {
 			
@@ -106,7 +106,6 @@ public class EstadoLibroDAO {
 			bdUtil.desconectar(); 
 
 		}
-		
 	}
 	
 	public List<EstadoLibro> filtrarEstadoLibro(String filtro) {
@@ -141,5 +140,4 @@ public class EstadoLibroDAO {
 		}
 		return estadoLibros;
 	}
-
 }

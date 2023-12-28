@@ -98,5 +98,4 @@ public class LibroDAO {
 			bdUtil.desconectar();
 		}
 	}
-
 }

@@ -9,28 +9,33 @@ public class Compra {
 	private int id;
 	private double precio;
 	private int libroFK;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public int getLibroFK() {
+		return libroFK;
+	}
 	
+	public void setLibroFK(int libroFK) {
+		this.libroFK = libroFK;
+	}
+
 	@Override
 	public String toString() {
 		return Integer.toString(this.id);
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public double getPrecio() {
-		return precio;
-	}
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-	public int getLibroFK() {
-		return libroFK;
-	}
-	public void setLibroFK(int libroFK) {
-		this.libroFK = libroFK;
-	}
-	
 }

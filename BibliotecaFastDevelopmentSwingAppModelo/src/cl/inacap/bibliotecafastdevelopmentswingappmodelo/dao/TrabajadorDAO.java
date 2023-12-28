@@ -34,9 +34,9 @@ public class TrabajadorDAO {
 	
 	public List<Trabajador> getAll() {
 		List<Trabajador> trabajadores = new ArrayList<Trabajador>();
-		boolean resultado;
 		
-		try{
+		boolean resultado;
+		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			Statement st = bdUtil.getConexion().createStatement();
@@ -89,7 +89,6 @@ public class TrabajadorDAO {
 	}
 	
 	public void update(Trabajador tr) {
-		
 		boolean resultado;
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
@@ -110,13 +109,13 @@ public class TrabajadorDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
-			bdUtil.desconectar(); 
-
+			bdUtil.desconectar();
 		}
 	}
 	
 	public List<Trabajador> filtrarTrabajador(String filtro) {		
 		List<Trabajador> trabajadores = new ArrayList<Trabajador>();
+		
 		boolean resultado;
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());

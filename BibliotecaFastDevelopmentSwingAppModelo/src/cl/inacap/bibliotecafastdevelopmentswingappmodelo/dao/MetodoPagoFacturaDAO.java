@@ -104,8 +104,6 @@ public class MetodoPagoFacturaDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
 			bdUtil.desconectar(); 
-
 		}
-		
 	}
 }

@@ -23,10 +23,9 @@ public class CompraDAO {
 	 * @param estadoFK Este parámetro hace referencia a la clave foránea de la tabla estado.
 	 * @return Retorna true si se agrego exitosamente el registro, en caso contrario retorna false.
 	 */
-	public boolean save(double precio) {
+	public boolean save(double precio) { //Acá se genera la compra.
 		boolean resultado;
 		try {
-			//ACA SE GENERA LA COMPRA.
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO compra" + "(precio)" + " VALUES('" + precio + "')"; 
 			Statement st = bdUtil.getConexion().createStatement();
@@ -39,7 +38,7 @@ public class CompraDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
-		bdUtil.desconectar(); 
+			bdUtil.desconectar(); 
 		}
 		return resultado;
 	}

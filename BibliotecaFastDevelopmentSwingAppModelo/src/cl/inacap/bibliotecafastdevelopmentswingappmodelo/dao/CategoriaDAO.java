@@ -27,7 +27,7 @@ public class CategoriaDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
-		bdUtil.desconectar(); 
+			bdUtil.desconectar(); 
 		}
 		return resultado;
 	}
@@ -80,13 +80,12 @@ public class CategoriaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			
-		}finally {
+		} finally {
 			bdUtil.desconectar();
 		}
 	}
 	
 	public void update(Categoria ca){
-		
 		boolean resultado;
 		try {
 			
@@ -105,9 +104,7 @@ public class CategoriaDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
 			bdUtil.desconectar(); 
-
 		}
-		
 	}
 	
 	public List<Categoria> filtrarCategoria(String filtro){

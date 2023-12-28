@@ -38,11 +38,10 @@ private BDUtil bdUtil = new BDUtil();
 	}
 	
 	public List<TelefonoTrabajador> filtrarTelefonoTrabajador(String filtro) {
-		
 		List<TelefonoTrabajador> telefonosTrabajador = new ArrayList<TelefonoTrabajador>();
+
 		boolean resultado;
 		try {
-				
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 				
 			String sql = "SELECT id, telefono, trabajador_rut" + " FROM telefono_trabajador";
@@ -59,7 +58,7 @@ private BDUtil bdUtil = new BDUtil();
 				tt.setTrabajadorFK(rs.getString(3));
 				telefonosTrabajador.add(tt);
 			}
-				rs.close(); 
+			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);

@@ -27,7 +27,7 @@ public class ClienteDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 			
 		} finally { 
-		bdUtil.desconectar(); 
+			bdUtil.desconectar(); 
 		}
 		return resultado;
 	}
@@ -89,7 +89,6 @@ public class ClienteDAO {
 	}
 	
 	public void update(Cliente cl) {
-		
 		boolean resultado;
 		try {
 			
@@ -112,13 +111,10 @@ public class ClienteDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
 			bdUtil.desconectar(); 
-
 		}
-		
 	}
 	
-	public List<Cliente> filtrarCliente(String filtro) {
-			
+	public List<Cliente> filtrarCliente(String filtro) {	
 		List<Cliente> clientes = new ArrayList<Cliente>();
 		boolean resultado;
 		try {
