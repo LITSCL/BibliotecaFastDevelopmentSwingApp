@@ -14,6 +14,7 @@ public class IdiomaDAO {
 	
 	public boolean save(Idioma id) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO idioma" + "(codigo, nombre)" + " VALUES('" + id.getCodigo() + "','" + id.getNombre() + "')"; 
@@ -24,7 +25,6 @@ public class IdiomaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -34,8 +34,8 @@ public class IdiomaDAO {
 	public List<Idioma> getAll() {
 		List<Idioma> idiomas = new ArrayList<Idioma>();
 		boolean resultado;
-		
-		try{
+
+		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			Statement st = bdUtil.getConexion().createStatement();
@@ -57,7 +57,6 @@ public class IdiomaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			idiomas = null;
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -67,6 +66,7 @@ public class IdiomaDAO {
 	
 	public void delete(Idioma id) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM idioma" + " WHERE codigo = ?";
@@ -78,7 +78,6 @@ public class IdiomaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -86,8 +85,8 @@ public class IdiomaDAO {
 	
 	public void update(Idioma id) {
 		boolean resultado;
+		
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			String sql = "UPDATE idioma SET nombre = ?" + " WHERE codigo = ?"; 
@@ -97,7 +96,6 @@ public class IdiomaDAO {
 			st.executeUpdate();
 			resultado = true;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
@@ -133,11 +131,9 @@ public class IdiomaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			idiomas = null;
-			
 		} finally {
 			bdUtil.desconectar();
 		}	
 		return idiomas;
 	}
-
 }

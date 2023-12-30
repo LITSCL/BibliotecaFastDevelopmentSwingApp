@@ -15,6 +15,7 @@ public class CategoriaDAO {
 	
 	public boolean save(Categoria ca) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO categoria" + "(codigo, nombre)" + " VALUES('" + ca.getCodigo() + "','" + ca.getNombre() + "')"; 
@@ -25,7 +26,6 @@ public class CategoriaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -34,10 +34,9 @@ public class CategoriaDAO {
 	
 	public List<Categoria> getAll(){
 		List<Categoria> categorias = new ArrayList<Categoria>();
-		
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT codigo, nombre" + " FROM categoria";
@@ -58,7 +57,6 @@ public class CategoriaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			categorias = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -68,6 +66,7 @@ public class CategoriaDAO {
 	
 	public void delete(Categoria ca) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM categoria" + " WHERE codigo = ?";
@@ -79,7 +78,6 @@ public class CategoriaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -87,8 +85,8 @@ public class CategoriaDAO {
 	
 	public void update(Categoria ca){
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			String sql = "UPDATE categoria SET nombre = ?" + " WHERE codigo = ?"; 
@@ -98,7 +96,6 @@ public class CategoriaDAO {
 			st.executeUpdate();
 			resultado = true;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} catch(Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
@@ -109,10 +106,9 @@ public class CategoriaDAO {
 	
 	public List<Categoria> filtrarCategoria(String filtro){
 		List<Categoria> categorias = new ArrayList<Categoria>();
-		
 		boolean resultado;
+		
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT codigo, nombre"+" FROM categoria WHERE codigo = " + "'" + filtro + "'";
@@ -133,7 +129,6 @@ public class CategoriaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			categorias = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}

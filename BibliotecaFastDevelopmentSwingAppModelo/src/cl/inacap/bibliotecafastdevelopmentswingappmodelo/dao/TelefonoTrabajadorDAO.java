@@ -13,22 +13,22 @@ private BDUtil bdUtil = new BDUtil();
 	
 	public boolean save(List<String> telefonos, String rutTrabajador) {
 		boolean resultado = true;
+		
 		if (telefonos.size() > 0) {
 			try {
 				for (int i = 0; i < telefonos.size(); i++) {
-				System.out.println("Conexión a la DB: " + bdUtil.conectar());
-				String sql = "INSERT INTO telefono_trabajador" + "(telefono, trabajador_rut)" + " VALUES(?, ?)"; 
-				PreparedStatement st = bdUtil.getConexion().prepareStatement(sql);
-				st.setString(1, telefonos.get(i));
-				st.setString(2, rutTrabajador);
-				st.executeUpdate();
-				resultado = true;
-				System.out.println("Ejecución del SQL: " + resultado);
+					System.out.println("Conexión a la DB: " + bdUtil.conectar());
+					String sql = "INSERT INTO telefono_trabajador" + "(telefono, trabajador_rut)" + " VALUES(?, ?)"; 
+					PreparedStatement st = bdUtil.getConexion().prepareStatement(sql);
+					st.setString(1, telefonos.get(i));
+					st.setString(2, rutTrabajador);
+					st.executeUpdate();
+					resultado = true;
+					System.out.println("Ejecución del SQL: " + resultado);
 				}
 			} catch (Exception ex) {
 				resultado = false;
 				System.out.println("Ejecución del SQL: " + resultado);
-					
 			} finally { 
 				bdUtil.desconectar(); 
 			}
@@ -39,8 +39,8 @@ private BDUtil bdUtil = new BDUtil();
 	
 	public List<TelefonoTrabajador> filtrarTelefonoTrabajador(String filtro) {
 		List<TelefonoTrabajador> telefonosTrabajador = new ArrayList<TelefonoTrabajador>();
-
 		boolean resultado;
+		
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 				
@@ -63,7 +63,6 @@ private BDUtil bdUtil = new BDUtil();
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			telefonosTrabajador = null;
-				
 		} finally { 
 			bdUtil.desconectar();
 		}

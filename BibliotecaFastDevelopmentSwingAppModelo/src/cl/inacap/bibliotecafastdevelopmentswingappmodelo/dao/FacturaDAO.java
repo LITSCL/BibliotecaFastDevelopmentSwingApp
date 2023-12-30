@@ -24,6 +24,7 @@ public class FacturaDAO {
 	 */
 	public boolean save(Factura fa) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO factura" + "(folio, precio_neto, precio_con_iva, costo_iva, fecha_de_compra, hora_de_compra, metodo_de_pago_factura_codigo, distribuidor_rut, compra_id)" + " VALUES('" + fa.getFolio() + "','" + fa.getPrecioNeto() + "','" + fa.getPrecioConIVA() + "','" + fa.getCostoIVA() + "','" + fa.getFechaDeCompra() + "','" + fa.getHoraDeCompra() + "','" + fa.getMetodoDePagoFK() + "','" + fa.getDistribuidorFK() + "','" + fa.getCompraFK() + "')"; 
@@ -43,10 +44,9 @@ public class FacturaDAO {
 	
 	public List<Factura> getAll() {
 		List<Factura> facturas = new ArrayList<Factura>();
-		
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT folio, precio_neto, precio_con_iva, costo_iva, fecha_de_compra, hora_de_compra, metodo_de_pago_factura_codigo, distribuidor_rut, compra_id" + " FROM factura";
@@ -74,7 +74,6 @@ public class FacturaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			facturas = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -83,6 +82,7 @@ public class FacturaDAO {
 	
 	public boolean delete(Factura fa) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM factura" + " WHERE folio = ?";
@@ -94,7 +94,6 @@ public class FacturaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -103,8 +102,8 @@ public class FacturaDAO {
 	
 	public List<Factura> filtrarFactura(String filtro) {
 		List<Factura> facturas = new ArrayList<Factura>();
-		
 		boolean resultado;
+		
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
@@ -134,7 +133,6 @@ public class FacturaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			facturas = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}

@@ -14,6 +14,7 @@ private BDUtil bdUtil = new BDUtil();
 	
 	public boolean save(Venta ve) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO venta" + "(precio, cliente_rut, trabajador_rut)" + " VALUES('" + ve.getPrecio() + "','" + ve.getClienteFK() + "','" + ve.getTrabajadorFK() + "')"; 
@@ -24,7 +25,6 @@ private BDUtil bdUtil = new BDUtil();
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -33,8 +33,8 @@ private BDUtil bdUtil = new BDUtil();
 	
 	public List<Venta> getAll() {
 		List<Venta> ventas = new ArrayList<Venta>();
-		
 		boolean resultado;
+		
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		

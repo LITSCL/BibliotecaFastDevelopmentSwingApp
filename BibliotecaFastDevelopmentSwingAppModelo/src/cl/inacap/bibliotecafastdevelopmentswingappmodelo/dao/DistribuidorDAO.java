@@ -15,6 +15,7 @@ public class DistribuidorDAO {
 	
 	public boolean save(Distribuidor di) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO distribuidor" + "(rut, nombre, pais, comuna, calle, numero, telefono, year_servicio)" + " VALUES('" + di.getRut() + "','" + di.getNombre() + "','" + di.getPais() + "','" + di.getComuna() + "','" + di.getCalle() + "','" + di.getNumero() + "','" + di.getTelefono() + "','" + di.getYearServicio() + "')"; 
@@ -25,7 +26,6 @@ public class DistribuidorDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -34,8 +34,8 @@ public class DistribuidorDAO {
 	
 	public List<Distribuidor> getAll() {
 		List<Distribuidor> distribuidores = new ArrayList<Distribuidor>();
-		
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
@@ -63,7 +63,6 @@ public class DistribuidorDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			distribuidores = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -73,6 +72,7 @@ public class DistribuidorDAO {
 	
 	public void delete(Distribuidor di) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM distribuidor" + " WHERE rut = ?";
@@ -84,7 +84,6 @@ public class DistribuidorDAO {
 		} catch(Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -92,6 +91,7 @@ public class DistribuidorDAO {
 	
 	public void update(Distribuidor di) {	
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
@@ -109,20 +109,18 @@ public class DistribuidorDAO {
 			st.executeUpdate();
 			resultado = true;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
-			bdUtil.desconectar(); 
-
+			bdUtil.desconectar();
 		}
 	}
 	
 	public List<Distribuidor> filtrarDistribuidor(String filtro) {
 		List<Distribuidor> distribuidores = new ArrayList<Distribuidor>();
-		
 		boolean resultado;
+		
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
@@ -150,12 +148,10 @@ public class DistribuidorDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			distribuidores = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
 
 		return distribuidores;
 	}
-
 }

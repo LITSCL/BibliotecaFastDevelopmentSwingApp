@@ -14,6 +14,7 @@ public class EditorialDAO {
 	
 	public boolean save(Editorial ed) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO editorial" + "(codigo, nombre)" + " VALUES('" + ed.getCodigo() + "','" + ed.getNombre() + "')"; 
@@ -33,10 +34,9 @@ public class EditorialDAO {
 	
 	public List<Editorial> getAll() {
 		List<Editorial> editoriales = new ArrayList<Editorial>();
-		
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT codigo, nombre" + " FROM editorial";
@@ -57,7 +57,6 @@ public class EditorialDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			editoriales = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -67,6 +66,7 @@ public class EditorialDAO {
 	
 	public boolean delete(Editorial ed) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM editorial" + " WHERE codigo = ?";
@@ -78,7 +78,6 @@ public class EditorialDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -87,8 +86,8 @@ public class EditorialDAO {
 	
 	public void update(Editorial ed) {
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			String sql = "UPDATE editorial SET nombre = ?" + " WHERE codigo = ?"; 
@@ -98,22 +97,19 @@ public class EditorialDAO {
 			st.executeUpdate();
 			resultado = true;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
-			bdUtil.desconectar(); 
-
+			bdUtil.desconectar();
 		}
 	}
 	
 	public List<Editorial> filtrarEditorial(String filtro) {
 		List<Editorial> editoriales = new ArrayList<Editorial>();
-		
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT codigo, nombre" + " FROM editorial WHERE codigo = " + "'" + filtro + "'";
@@ -134,7 +130,6 @@ public class EditorialDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			editoriales = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}

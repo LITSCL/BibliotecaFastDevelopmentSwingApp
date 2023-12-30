@@ -78,7 +78,6 @@ public class EstadoLibroDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -104,16 +103,14 @@ public class EstadoLibroDAO {
 			System.out.println("Ejecución del SQL: "+resultado);
 		} finally { 
 			bdUtil.desconectar(); 
-
 		}
 	}
 	
 	public List<EstadoLibro> filtrarEstadoLibro(String filtro) {
 		List<EstadoLibro> estadoLibros = new ArrayList<EstadoLibro>();
-		
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT codigo, descripcion" + " FROM estado_libro WHERE codigo = " + "'" + filtro + "'";
@@ -134,7 +131,6 @@ public class EstadoLibroDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: "+resultado);
 			estadoLibros = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}

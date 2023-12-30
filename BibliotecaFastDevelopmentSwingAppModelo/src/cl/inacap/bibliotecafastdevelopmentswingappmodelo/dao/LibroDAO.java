@@ -24,6 +24,7 @@ public class LibroDAO {
 	 */
 	public boolean save(Libro li) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO libro" + "(numero_de_serie, isbn, titulo, numero_de_paginas, precio_de_referencia, fecha_de_publicacion, estado_libro_codigo, editorial_codigo)" + " VALUES('" + li.getNumeroDeSerie() + "','" + li.getIsbn() + "','" + li.getTitulo() + "','"+li.getNumeroDePaginas() + "','" + li.getPrecioDeReferencia() + "','" + li.getFechaDePublicacion() + "','"+li.getEstadoLibroFK() + "','" + li.getEditorialFK() + "')"; 
@@ -72,7 +73,6 @@ public class LibroDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			libros = null;
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -82,6 +82,7 @@ public class LibroDAO {
 	
 	public void delete(Libro li) {
 		boolean resultado;
+		
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM libro" + " WHERE numero_de_serie = ?";
@@ -93,7 +94,6 @@ public class LibroDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}

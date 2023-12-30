@@ -25,6 +25,7 @@ public class CompraDAO {
 	 */
 	public boolean save(double precio) { //Acá se genera la compra.
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO compra" + "(precio)" + " VALUES('" + precio + "')"; 
@@ -36,7 +37,6 @@ public class CompraDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -45,10 +45,9 @@ public class CompraDAO {
 	
 	public List<Compra> getAll() {
 		List<Compra> compras = new ArrayList<Compra>();
-		
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT id, precio" + " FROM compra";
@@ -69,7 +68,6 @@ public class CompraDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			compras = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}

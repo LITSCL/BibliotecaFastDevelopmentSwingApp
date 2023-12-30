@@ -16,7 +16,7 @@ private BDUtil bdUtil = new BDUtil();
 	public boolean save(List<Libro> libros, int compraFK, String codigoFK) {
 		boolean resultado = false;
 
-		for(Libro cl : libros) {
+		for (Libro cl : libros) {
 			try {
 				System.out.println("Conexión a la DB CompraLibro: " + bdUtil.conectar());
 				String sql = "INSERT INTO compra_libro" + "(compra_id, libro_numero_de_serie)" + " VALUES('" + compraFK + "','" + cl.getNumeroDeSerie() + "')"; 
@@ -46,8 +46,8 @@ private BDUtil bdUtil = new BDUtil();
 	
 	public List<CompraLibro> filtrarCompraLibro(int filtro, String columna) {
 		List<CompraLibro> compraLibros = new ArrayList<CompraLibro>();
-		
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
@@ -81,6 +81,7 @@ private BDUtil bdUtil = new BDUtil();
 	public int contarLibros() {
 		int cantidadLibros = 0;
 		boolean resultado = false;
+		
 		try {			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
@@ -97,7 +98,6 @@ private BDUtil bdUtil = new BDUtil();
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}

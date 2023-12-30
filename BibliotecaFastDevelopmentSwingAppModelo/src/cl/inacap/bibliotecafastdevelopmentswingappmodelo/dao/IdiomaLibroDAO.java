@@ -27,7 +27,6 @@ public class IdiomaLibroDAO {
 			} catch (Exception ex) {
 				resultado = false;
 				System.out.println("Ejecución del SQL Idioma: " + resultado);
-				
 			} finally { 
 				bdUtil.desconectar(); 
 			}
@@ -35,13 +34,11 @@ public class IdiomaLibroDAO {
 		return resultado;
 	}
 
-
 	public List<IdiomaLibro> getAll() {
-		List<IdiomaLibro> idiomaLibros = new ArrayList<IdiomaLibro>();
-		
+		List<IdiomaLibro> idiomaLibros = new ArrayList<IdiomaLibro>();	
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT id, libro_numero_de_serie, idioma_codigo" + " FROM idioma_libro";
@@ -63,7 +60,6 @@ public class IdiomaLibroDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			idiomaLibros = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -73,6 +69,7 @@ public class IdiomaLibroDAO {
 	
 	public void delete(IdiomaLibro il) {
 		boolean resultado;
+		
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM idioma_libro" + " WHERE id = ?";
@@ -84,7 +81,6 @@ public class IdiomaLibroDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}

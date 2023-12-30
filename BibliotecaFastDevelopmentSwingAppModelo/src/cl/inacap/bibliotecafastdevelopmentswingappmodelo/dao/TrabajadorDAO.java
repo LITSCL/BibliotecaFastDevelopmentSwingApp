@@ -15,6 +15,7 @@ public class TrabajadorDAO {
 	
 	public boolean save(Trabajador tr) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO trabajador" + "(rut, nombre, apellido_paterno, apellido_materno, fecha_de_contrato)" + " VALUES('" + tr.getRut() + "','" + tr.getNombre() + "','" + tr.getApellidoPaterno() + "','" + tr.getApellidoMaterno() + "','" + tr.getFechaDeContrato() + "')"; 
@@ -25,7 +26,6 @@ public class TrabajadorDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -34,8 +34,8 @@ public class TrabajadorDAO {
 	
 	public List<Trabajador> getAll() {
 		List<Trabajador> trabajadores = new ArrayList<Trabajador>();
-		
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
@@ -61,7 +61,6 @@ public class TrabajadorDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			trabajadores = null;
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -71,6 +70,7 @@ public class TrabajadorDAO {
 	
 	public void delete(Trabajador tr) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM trabajador" + " WHERE rut = ?";
@@ -82,7 +82,6 @@ public class TrabajadorDAO {
 		} catch (Exception ex) {
 			resultado=false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -90,6 +89,7 @@ public class TrabajadorDAO {
 	
 	public void update(Trabajador tr) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
@@ -104,7 +104,6 @@ public class TrabajadorDAO {
 			st.executeUpdate();
 			resultado = true;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
@@ -115,8 +114,8 @@ public class TrabajadorDAO {
 	
 	public List<Trabajador> filtrarTrabajador(String filtro) {		
 		List<Trabajador> trabajadores = new ArrayList<Trabajador>();
-		
 		boolean resultado;
+		
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
@@ -141,7 +140,6 @@ public class TrabajadorDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			trabajadores = null;
-				
 		} finally { 
 			bdUtil.desconectar();
 		}

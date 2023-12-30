@@ -15,6 +15,7 @@ public class ClienteDAO {
 	
 	public boolean save(Cliente cl) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO cliente" + "(rut, nombre, apellido_paterno, apellido_materno, fecha_de_nacimiento)" + " VALUES('" + cl.getRut()+"','" + cl.getNombre() + "','" + cl.getApellidoPaterno() + "','" + cl.getApellidoMaterno() + "','" + cl.getFechaDeNacimiento() + "')"; 
@@ -25,7 +26,6 @@ public class ClienteDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -34,10 +34,9 @@ public class ClienteDAO {
 	
 	public List<Cliente> getAll() {
 		List<Cliente> clientes = new ArrayList<Cliente>();
-		
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT rut, nombre, apellido_paterno, apellido_materno, fecha_de_nacimiento" + " FROM cliente";
@@ -61,7 +60,6 @@ public class ClienteDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			clientes = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -71,6 +69,7 @@ public class ClienteDAO {
 	
 	public void delete(Cliente cl) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM cliente" + " WHERE rut = ?";
@@ -82,7 +81,6 @@ public class ClienteDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -90,8 +88,8 @@ public class ClienteDAO {
 	
 	public void update(Cliente cl) {
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
 			String sql = "UPDATE cliente SET nombre = ?" + ", apellido_paterno = ?" + ", apellido_materno = ?" + ", fecha_de_nacimiento = ?" + " WHERE rut = ?"; 
@@ -105,7 +103,6 @@ public class ClienteDAO {
 			st.executeUpdate();
 			resultado = true;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
@@ -117,8 +114,8 @@ public class ClienteDAO {
 	public List<Cliente> filtrarCliente(String filtro) {	
 		List<Cliente> clientes = new ArrayList<Cliente>();
 		boolean resultado;
+		
 		try {
-				
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 				
 			String sql = "SELECT rut, nombre, apellido_paterno, apellido_materno, fecha_de_nacimiento" + " FROM cliente";
@@ -137,13 +134,12 @@ public class ClienteDAO {
 				cl.setFechaDeNacimiento(rs.getString(5));
 				clientes.add(cl);
 			}
-				rs.close(); 
+			rs.close(); 
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			clientes = null;
-				
-		}finally { 
+		} finally { 
 			bdUtil.desconectar();
 		}
 		return clientes;

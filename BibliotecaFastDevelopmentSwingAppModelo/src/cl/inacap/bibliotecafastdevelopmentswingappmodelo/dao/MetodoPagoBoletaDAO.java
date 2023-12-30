@@ -24,7 +24,6 @@ public class MetodoPagoBoletaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -33,8 +32,8 @@ public class MetodoPagoBoletaDAO {
 	
 	public List<MetodoPagoBoleta> getAll() {
 		List<MetodoPagoBoleta> metodoPagoBoletas = new ArrayList<MetodoPagoBoleta>();
-		
 		boolean resultado;
+
 		try {	
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
@@ -64,6 +63,7 @@ public class MetodoPagoBoletaDAO {
 	
 	public boolean delete(MetodoPagoBoleta mpb) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM metodo_de_pago_boleta" + " WHERE codigo = ?";
@@ -75,7 +75,6 @@ public class MetodoPagoBoletaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -84,6 +83,7 @@ public class MetodoPagoBoletaDAO {
 	
 	public void update(MetodoPagoBoleta mpb) {	
 		boolean resultado;
+		
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
@@ -95,7 +95,6 @@ public class MetodoPagoBoletaDAO {
 			st.executeUpdate();
 			resultado = true;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);

@@ -36,8 +36,7 @@ private BDUtil bdUtil = new BDUtil();
 				System.out.println("Ejecución del SQL VentaLibro: " + resultado);
 			} catch (Exception ex) {
 				resultado = false;
-				System.out.println("Ejecución del SQL VentaLibro: " + resultado);
-				
+				System.out.println("Ejecución del SQL VentaLibro: " + resultado);	
 			} finally { 
 				bdUtil.desconectar(); 
 			}
@@ -47,8 +46,8 @@ private BDUtil bdUtil = new BDUtil();
 	
 	public List<VentaLibro> filtrarVentaLibro(int filtro, String columna) {
 		List<VentaLibro> ventaLibros = new ArrayList<VentaLibro>();
-		
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
@@ -72,7 +71,6 @@ private BDUtil bdUtil = new BDUtil();
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			ventaLibros = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -83,6 +81,7 @@ private BDUtil bdUtil = new BDUtil();
 	public int contarLibros() {
 		int cantidadLibros = 0;
 		boolean resultado = false;
+
 		try {			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
@@ -99,7 +98,6 @@ private BDUtil bdUtil = new BDUtil();
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}	

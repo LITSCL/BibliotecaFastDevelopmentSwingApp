@@ -22,7 +22,6 @@ private BDUtil bdUtil = new BDUtil();
 			} catch (Exception ex) {
 				resultado = false;
 				System.out.println("Ejecución del SQL Autor: " + resultado);
-				
 			} finally { 
 			bdUtil.desconectar(); 
 			}

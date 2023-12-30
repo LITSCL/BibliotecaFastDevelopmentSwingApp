@@ -14,6 +14,7 @@ public class MetodoPagoFacturaDAO {
 	
 	public boolean save(MetodoPagoFactura mpf) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO metodo_de_pago_factura" + "(codigo, descripcion)" + " VALUES('" + mpf.getCodigo() + "','" + mpf.getDescripcion() + "')"; 
@@ -24,7 +25,6 @@ public class MetodoPagoFacturaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -32,11 +32,10 @@ public class MetodoPagoFacturaDAO {
 	}
 	
 	public List<MetodoPagoFactura> getAll() {
-		List<MetodoPagoFactura> metodoPagoFacturas = new ArrayList<MetodoPagoFactura>();
-		
+		List<MetodoPagoFactura> metodoPagoFacturas = new ArrayList<MetodoPagoFactura>();	
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT codigo, descripcion" + " FROM metodo_de_pago_factura";
@@ -57,7 +56,6 @@ public class MetodoPagoFacturaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			metodoPagoFacturas = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -66,6 +64,7 @@ public class MetodoPagoFacturaDAO {
 	
 	public boolean delete(MetodoPagoFactura mpf) {
 		boolean resultado;
+		
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM metodo_de_pago_factura" + " WHERE codigo = ?";
@@ -77,7 +76,6 @@ public class MetodoPagoFacturaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -85,8 +83,8 @@ public class MetodoPagoFacturaDAO {
 	}
 	
 	public void update(MetodoPagoFactura mpf) {
-		
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
@@ -98,7 +96,6 @@ public class MetodoPagoFacturaDAO {
 			st.executeUpdate();
 			resultado = true;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);

@@ -23,7 +23,6 @@ public class CategoriaLibroDAO {
 			} catch (Exception ex) {
 				resultado = false;
 				System.out.println("Ejecución del SQL Categoria: " + resultado);
-				
 			} finally { 
 				bdUtil.desconectar(); 
 			}

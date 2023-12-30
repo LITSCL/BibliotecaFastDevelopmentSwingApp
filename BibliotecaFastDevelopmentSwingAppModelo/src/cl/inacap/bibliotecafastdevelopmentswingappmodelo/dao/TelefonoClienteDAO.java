@@ -13,6 +13,7 @@ public class TelefonoClienteDAO {
 	
 	public boolean save(List<String> telefonos, String rutCliente) {
 		boolean resultado = true;
+
 		if (telefonos.size() > 0) {
 			try {
 				for (int i = 0; i < telefonos.size(); i++) {
@@ -28,7 +29,6 @@ public class TelefonoClienteDAO {
 			} catch (Exception ex) {
 				resultado = false;
 				System.out.println("Ejecución del SQL: " + resultado);
-					
 			} finally { 
 				bdUtil.desconectar(); 
 			}
@@ -39,8 +39,8 @@ public class TelefonoClienteDAO {
 	
 	public List<TelefonoCliente> filtrarTelefonoCliente(String filtro) {
 		List<TelefonoCliente> telefonosCliente = new ArrayList<TelefonoCliente>();
-
 		boolean resultado;
+		
 		try {
 				
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
@@ -64,7 +64,6 @@ public class TelefonoClienteDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			telefonosCliente = null;
-				
 		} finally { 
 			bdUtil.desconectar();
 		}

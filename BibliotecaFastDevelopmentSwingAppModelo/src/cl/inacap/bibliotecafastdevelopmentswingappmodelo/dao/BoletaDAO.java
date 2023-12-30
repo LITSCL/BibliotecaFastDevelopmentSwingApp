@@ -13,6 +13,7 @@ public class BoletaDAO {
 	
 	public boolean save(Boleta bo) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO boleta" + "(folio, precio_neto, precio_con_iva, costo_iva, fecha_de_venta, hora_de_venta, metodo_de_pago_boleta_codigo, cliente_rut, trabajador_rut, venta_id)" + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
@@ -33,7 +34,6 @@ public class BoletaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -42,8 +42,8 @@ public class BoletaDAO {
 	
 	public List<Boleta> getAll(){
 		List<Boleta> boletas = new ArrayList<Boleta>();
-		
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
@@ -73,7 +73,6 @@ public class BoletaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			boletas = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
@@ -83,6 +82,7 @@ public class BoletaDAO {
 	
 	public boolean delete(Boleta bo) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM boleta" + " WHERE folio = ?";
@@ -94,7 +94,6 @@ public class BoletaDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
@@ -103,10 +102,9 @@ public class BoletaDAO {
 	
 	public List<Boleta> filtrarBoleta(String filtro){
 		List<Boleta> boletas = new ArrayList<Boleta>();
-		
 		boolean resultado;
+		
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT folio, precio_neto, precio_con_iva, costo_iva, fecha_de_venta, hora_de_venta, trabajador_rut, metodo_de_pago_boleta_codigo, cliente_rut" + " FROM boleta";
@@ -135,7 +133,6 @@ public class BoletaDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			boletas = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}

@@ -24,6 +24,7 @@ public class AutorDAO {
 	
 	public boolean save(Autor au) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "INSERT INTO autor" + "(codigo, nombre, apellido_paterno, apellido_materno, fecha_de_nacimiento)" + " VALUES('" + au.getCodigo() + "','" + au.getNombre() + "','" + au.getApellidoPaterno() + "','"+au.getApellidoMaterno() + "','" + au.getFechaDeNacimiento() + "')"; 
@@ -43,10 +44,9 @@ public class AutorDAO {
 	
 	public List<Autor> getAll(){
 		List<Autor> autores = new ArrayList<Autor>();
-		
 		boolean resultado;
+
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT codigo, nombre, apellido_paterno, apellido_materno, fecha_de_nacimiento" + " FROM autor";
@@ -79,6 +79,7 @@ public class AutorDAO {
 	
 	public void delete(Autor au) {
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			String sql = "DELETE FROM autor" + " WHERE codigo = ?";
@@ -90,15 +91,14 @@ public class AutorDAO {
 		} catch (Exception ex) {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
-			
 		} finally {
 			bdUtil.desconectar();
 		}
 	}
 	
 	public void update(Autor au){
-		
 		boolean resultado;
+
 		try {
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 			
@@ -119,17 +119,15 @@ public class AutorDAO {
 			System.out.println("Ejecución del SQL: " + resultado);
 		} finally { 
 			bdUtil.desconectar(); 
-
 		}
 		
 	}
 	
 	public List<Autor> filtrarAutor(String filtro){
 		List<Autor> autores = new ArrayList<Autor>();
-		
 		boolean resultado;
+		
 		try {
-			
 			System.out.println("Conexión a la DB: " + bdUtil.conectar());
 		
 			String sql = "SELECT codigo, nombre, apellido_paterno, apellido_materno, fecha_de_nacimiento" + " FROM autor WHERE codigo = " + "'" + filtro + "'";
@@ -153,7 +151,6 @@ public class AutorDAO {
 			resultado = false;
 			System.out.println("Ejecución del SQL: " + resultado);
 			autores = null;
-			
 		} finally { 
 			bdUtil.desconectar(); 
 		}
